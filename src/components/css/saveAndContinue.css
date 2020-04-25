@@ -1,0 +1,23 @@
+.sNCFullBody{
+    border-style: solid;
+    margin-top: 6px;
+    border-color: #FFFFFF;
+}
+
+.sNCBodyText{
+    margin-top: 11px;
+    margin-left: auto;
+}
+
+.saveAndContinueButton{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.lockIconColumn{
+    margin-top: 10px;
+    max-width: 30px;
+    margin-left: 22px;
+    margin-right: auto;
+};
