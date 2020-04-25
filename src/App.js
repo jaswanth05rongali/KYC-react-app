@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { VerifyYourIdentity } from './components/verifyYourIdentity';
+import { SaveAndContinue } from './components/saveAndContinue';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <VerifyYourIdentity />
+      <div>
+        <p>Your Govenrment ID</p>
+        <div>
+          <p>Front of Aadhaar</p>
+          <p>Your name and photo should be clearly visible</p>
+          <img src={require("./img.png")} height="200" width="300" alt="aadhaar image" /> 
+        </div>
+        <Button variant="outline-success">RETAKE</Button>
+        <Button variant="success">LOOKS GOOD</Button>
+      </div>
+      <SaveAndContinue />
     </div>
   );
 }
