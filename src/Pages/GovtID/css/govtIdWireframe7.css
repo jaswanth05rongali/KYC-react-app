@@ -1,0 +1,32 @@
+.finalFrontIdImage{
+    border-style: solid;
+    border-color: #000000;
+    margin-top: 6px;
+    margin-left: 36px;
+    margin-bottom: 18px;
+}
+
+.finalBackIdImage{
+    border-style: solid;
+    border-color: #000000;
+    margin-top: 6px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+}
+
+.finalFullIdBody{
+    border-style: solid;
+    border-color: #f5f5f5;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.finalImages{
+    background-color: #f5f5f5;
+    padding-top: 8px;
+}
+
+.finalEmpty{
+    height: 360px;
+}
