@@ -87,7 +87,7 @@ class DetailPage extends Component {
                         <br/>
                         <FormGroup row>
                                         <Col><div className="insidebut">
-                                            <Button className="col-6" type="login" color="success" onClick={() => history.push('/govtid1')}>
+                                            <Button className="col-6" type="login" color="success" onClick={() => history.push('/selfie1')}>
                                                 Continue
                                             </Button>
                                             </div>

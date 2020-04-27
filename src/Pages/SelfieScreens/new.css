@@ -1,0 +1,28 @@
+#camera{
+    position: relative;
+    left:0px;
+    top:0px;
+}
+#camera-view{
+    text-align: center;
+    position:relative;
+    top:0px;
+    margin-top: 30px;
+    margin-right:30px;
+    left:auto;
+}
+#camera--trigger{
+    position: absolute;
+      top: 565px;
+      left: 160px;
+}
+#camera--close{
+    position: absolute;
+      top: 34px;
+      left: 308px;
+}
+#camera--tips{
+    position: absolute;
+      top: 610px;
+      left: 305px;
+}
