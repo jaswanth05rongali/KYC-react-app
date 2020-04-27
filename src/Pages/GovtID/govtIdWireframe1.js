@@ -20,7 +20,7 @@ class GovtIdWireframe1 extends React.Component{
                     </div>
                     <div className="text-center"><img className="firstIdImage" src={require("./aadhaar-front.png")} height="170" alt="aadhaar" /></div>
                   </div>
-                  <ClickPhoto />
+                  <ClickPhoto clickPhotoPath={'/govtid3'}/>
                 </div>
               </div>
               <SaveAndContinue />

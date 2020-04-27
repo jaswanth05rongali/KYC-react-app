@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { VerifyYourIdentity } from '../../components/verifyYourIdentity';
 import { SaveAndContinue } from '../../components/saveAndContinue';
 import { RetakeLooksGood } from '../../components/retakeLooksGood';
-import { ZestNavBar } from '../../components/zestNavBar';
+// import { ZestNavBar } from '../../components/zestNavBar';
 import './css/govtIdWireframe3.css'
 
 class GovtIdWireframe3 extends React.Component{
