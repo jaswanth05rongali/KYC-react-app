@@ -9,7 +9,7 @@ export class YourGovtId extends React.Component{
             <Container>
                 <Row>
                     <Col className="govtIdColumn affix">
-                        <p className="govtId">Your Govenrment ID</p>
+                        <p className="govtId">Your Government ID</p>
                     </Col>
                     <Col className="pencilIconColumn">
                         <a href="#"><img className="pencilIcon" src={require("./pencil-edit-button.png")} height="20" width="20" /></a>

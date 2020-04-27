@@ -7,7 +7,7 @@ import { YourGovtId } from '../../components/yourGovtId';
 import './css/govtIdWireframe3.css'
 import './css/govtIdWireframe6.css'
 
-class GovtIdWireframe6 extends React.Component{
+class GovtIdWireframe4 extends React.Component{
     render(){
         return (
             <div>
@@ -22,7 +22,7 @@ class GovtIdWireframe6 extends React.Component{
                     </div>
                     <div className="text-center"><img className="originalId" src={require("./aadhaar-back.png")} alt="aadhaar" height="170px"/></div> 
                   </div>
-                  <ClickPhoto />
+                  <ClickPhoto clickPhotoPath={'/govtid6'}/>
               </div>
               <SaveAndContinue />
             </div>
@@ -30,4 +30,4 @@ class GovtIdWireframe6 extends React.Component{
     }
 }
 
-export default GovtIdWireframe6;
+export default GovtIdWireframe4;

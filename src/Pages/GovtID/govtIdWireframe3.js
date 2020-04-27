@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { VerifyYourIdentity } from '../../components/verifyYourIdentity';
 import { SaveAndContinue } from '../../components/saveAndContinue';
 import { RetakeLooksGood } from '../../components/retakeLooksGood';
+import { ZestNavBar } from '../../components/zestNavBar';
 import './css/govtIdWireframe3.css'
 
 class GovtIdWireframe3 extends React.Component{
@@ -12,7 +13,7 @@ class GovtIdWireframe3 extends React.Component{
               <div className="frontBodyExceptSave">
                 <VerifyYourIdentity />
                 <div className="frontFullIdBody">
-                  <p className="frontGovtId">Your Govenrment ID</p>
+                  <p className="frontGovtId">Your Government ID</p>
                   <div className="frontIdBodyNImage">
                     <div className="frontIdBody">
                       <p className="frontAadhaar">Front of Aadhaar</p>
@@ -20,7 +21,7 @@ class GovtIdWireframe3 extends React.Component{
                     </div>
                     <img className="frontIdImage" src={require("./img.png")} height="200" width="300" alt="aadhaar" /> 
                   </div>
-                  <RetakeLooksGood />
+                  <RetakeLooksGood looksGoodPath={'/govtid4'} />
                 </div>
               </div>
               <SaveAndContinue />

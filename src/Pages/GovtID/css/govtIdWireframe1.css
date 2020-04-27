@@ -1,0 +1,31 @@
+
+ .firstGovtId{
+    background-color: #ffffff;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .firstIdBody{
+    margin-left: 20px;
+  }
+  
+  .firstAadhaar{
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .firstFullIdBody{
+    border-style: solid;
+    border-color: #f0f0f0;
+    margin-top: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 12px;
+  }
+
+.firstIdImage{
+    border-style: solid;
+    border-color: #f0f0f0;
+    margin-top: 15px;
+}

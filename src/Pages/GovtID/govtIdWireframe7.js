@@ -1,9 +1,7 @@
 import React from 'react';
-import {Container, Row, Col} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { VerifyYourIdentity } from '../../components/verifyYourIdentity';
 import { SaveAndContinue } from '../../components/saveAndContinue';
-import { RetakeLooksGood } from '../../components/retakeLooksGood';
 import { YourGovtId } from '../../components/yourGovtId';
 import './css/govtIdWireframe7.css'
 

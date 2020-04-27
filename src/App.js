@@ -1,6 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GovtIdWireframe3 from './Pages/GovtID/govtIdWireframe3';
+import Routes from './routes';
 import './App.css';
 
-export default GovtIdWireframe3;
+class App extends React.Component{
+    render(){
+        return (
+            <Routes />
+        );
+    }
+}
+
+export default App;

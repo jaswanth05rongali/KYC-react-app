@@ -22,7 +22,7 @@ class GovtIdWireframe6 extends React.Component{
                     </div>
                     <img className="backIdImage" src={require("./img.png")} height="200" width="300" alt="aadhaar" /> 
                   </div>
-                  <RetakeLooksGood />
+                  <RetakeLooksGood looksGoodPath={'/govtid7'}/>
               </div>
               <SaveAndContinue />
             </div>

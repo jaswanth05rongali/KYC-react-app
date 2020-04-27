@@ -13,7 +13,7 @@ export class VerifyYourIdentity extends React.Component{
                         </Col>
                         <Col >
                             <Row><p className="title">Verify your identity</p></Row>
-                            <Row><p className="bodyText">Please upload a Govenrment ID for KYC verification</p></Row>
+                            <Row><p className="bodyText">Please upload a Government ID for KYC verification</p></Row>
                         </Col>
                     </Row>
                 </Container>
