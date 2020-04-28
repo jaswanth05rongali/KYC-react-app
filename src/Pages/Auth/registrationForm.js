@@ -35,21 +35,6 @@ class RegistrationForm extends Component {
         })
     }
 
-      componentDidMount() {
-        this.userData = JSON.parse(localStorage.getItem('user'));
-
-        if (localStorage.getItem('user')) {
-            this.setState({
-                Username: this.userData.Username,
-                Password: this.userData.Password,
-            })
-        } else {
-            this.setState({
-                Username:'',
-                Password:''
-            })
-        }
-    }
     handleClick(){
         //alert('ewcwcwe');
         //window.location.hash = "/navbar";
@@ -58,9 +43,8 @@ class RegistrationForm extends Component {
        // window.open("/navbar");
       }
    
-
     componentWillUpdate(nextProps, nextState) {
-        localStorage.setItem('user', JSON.stringify(nextState));
+        sessionStorage.setItem('user', JSON.stringify(nextState));
     }
 render(){
   return(
