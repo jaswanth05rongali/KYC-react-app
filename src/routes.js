@@ -17,7 +17,7 @@ export default class Routes extends React.Component{
             <Router history={history}>
                 <Switch>
                     <Route path="/" exact component={RegistrationForm}/>
-                    <Route path="/customerdetails1" component={DetailPage}/>
+                    <Route path="/customerdetails1" exact component={DetailPage}/>                   
                     <Route path="/selfie1" component={SelfieScreen} />
                     <Route path="/selfie3" component={SelfieScreenBack} />
                     <Route path="/govtid1" component={GovtIdWireframe1} />
