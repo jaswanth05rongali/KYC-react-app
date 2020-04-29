@@ -1,6 +1,5 @@
 
 import React, {useState, Component} from 'react';
-import {BrowserRouter as Router, Link , Redirect , Prompt} from 'react-router-dom';
 import history from '../../history';
 
 class RegistrationForm extends Component {
@@ -39,7 +38,7 @@ class RegistrationForm extends Component {
         //alert('ewcwcwe');
         //window.location.hash = "/navbar";
         //window.location = '/navbar';
-       window.location.href = "/customerdetails1";
+       history.push("/customerdetails1");
        // window.open("/navbar");
       }
    
