@@ -27,7 +27,13 @@ class RegistrationForm extends Component {
         super(props);
         this.state={
         formValid: false,
+        ok : false,
+        validUser : false,
         errorCount: null,
+        user : {
+          Name : '',
+          Pass : ''
+        },
         errors : {
             Name:'',
             Pass:'',
@@ -36,19 +42,24 @@ class RegistrationForm extends Component {
        }
 
       handleChange = (event) => {
+        if(!this.state.ok){
+          this.setState({ok:true});
+        }
         event.preventDefault();
         const { name, value } = event.target;
         let errors = this.state.errors;
-        
+        let user = this.state.user;
         switch (name) {
           case 'Name':
+            if(value.length>=5) user.Name = value;
             errors.Name = 
               value.length < 5
                 ? 'user name must be 5 characters long!'
                 : '';
             break;
 
-          case 'Pass': 
+          case 'Pass':
+            if(value.length>=5) user.Pass = value;
             errors.Pass = 
               value.length < 8
                 ? 'password must be 8 characters long!'
@@ -58,13 +69,19 @@ class RegistrationForm extends Component {
             break;
         }
         this.setState({errors, [name]: value});
+        this.setState({user, [name] : value});
       }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({formValid: validateForm(this.state.errors)});
-        this.setState({errorCount: countErrors(this.state.errors)});
-
+        let user = this.state.user;
+        if(user.Name=="nisnt2411" && user.Pass=="12345678"){
+          this.setState({validUser:true});
+        }
+        if(this.state.ok){
+          this.setState({formValid: validateForm(this.state.errors)});
+          this.setState({errorCount: countErrors(this.state.errors)});
+        }
       }
   
     componentWillUpdate(nextProps, nextState) {
@@ -72,12 +89,12 @@ class RegistrationForm extends Component {
     }
     
 render(){
-    const {errors,formValid} =this.state;
+    const {errors,formValid,ok,validUser} =this.state;
   return(
         <div>
-          <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
-        <div className="registrationEntireBlock">
-            <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
+        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
+        <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
+        <br/>
         <nav className="navbar navbar-dark">
         <div className="row col-12 d-flex justify-content-center">
         <span className="h5 text-grey">Hi! Welcome to ZestMoney</span>
@@ -113,9 +130,13 @@ render(){
                     type="submit" 
                     className="btn btn-success btn-block" value="log in" onClick={this.handleClick}>Get OTP
                 </button>
-                {formValid ? <Redirect to="/customerdetails1"/> : <Redirect to="/"/>}
+                {formValid && ok && validUser ? <Redirect to="/customerdetails1"/> : 
+                !validUser && formValid && ok ?
+                <div class="alert alert-warning alert-dismissible">
+                <a href="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>User not found!</strong>
+              </div> : <Redirect to="/"/>}
             </form>
-        </div>
         </div>
         </div>
     )
