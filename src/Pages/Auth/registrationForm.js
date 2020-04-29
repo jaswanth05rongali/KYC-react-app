@@ -30,6 +30,7 @@ class RegistrationForm extends Component {
         ok : false,
         validUser : false,
         errorCount: null,
+        saveUsers: [],
         user : {
           Name : '',
           Pass : ''
@@ -75,9 +76,19 @@ class RegistrationForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         let user = this.state.user;
-        if(user.Name=="nisnt2411" && user.Pass=="12345678"){
+        let saveUsers=this.state.saveUsers;
+        let myuser=this.state.user;
+        saveUsers.map((user,index)=>{
+          //console.log(user.Username)
+          if(user.Username==myuser.Name && user.Password==myuser.Pass){
+            this.setState({validUser:true});
+          }
+        })
+
+      /*  if(user.Name=="nisnt2411" && user.Pass=="12345678"){
           this.setState({validUser:true});
         }
+        */
         if(this.state.ok){
           this.setState({formValid: validateForm(this.state.errors)});
           this.setState({errorCount: countErrors(this.state.errors)});
@@ -87,11 +98,19 @@ class RegistrationForm extends Component {
     componentWillUpdate(nextProps, nextState) {
         sessionStorage.setItem('user', JSON.stringify(nextState));
     }
+
+    componentDidMount(){
+      axios.get("http://localhost:3000/users").then((result)=>{
+        console.log(result);
+        this.setState({saveUsers : result.data});
+      });
+    }
     
 render(){
-    const {errors,formValid,ok,validUser} =this.state;
+    const {errors,formValid,ok,validUser,saveUsers} =this.state;
   return(
         <div>
+
         <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
         <br/>
