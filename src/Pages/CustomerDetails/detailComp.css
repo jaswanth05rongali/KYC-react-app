@@ -1,3 +1,11 @@
+.detailsEntireBlock{
+    margin-top: 50px;
+}
+
+.detailsCard{
+    padding-top: 20px;
+}
+
 .rowname {
     background-color: rgba(220, 220, 220, 0.986);
 

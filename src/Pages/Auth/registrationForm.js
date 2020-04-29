@@ -2,6 +2,7 @@
 import React, {useState, Component} from 'react';
 import axios from 'axios';
 import {BrowserRouter as Router, Link , Redirect , Prompt} from 'react-router-dom';
+import './registrationForm.css';
 import history from '../../history';
 
 const validateForm = (errors) => {
@@ -65,11 +66,7 @@ class RegistrationForm extends Component {
         this.setState({errorCount: countErrors(this.state.errors)});
 
       }
-   /*    //alert('ewcwcwe');
-        //window.location.hash = "/navbar";
-        this.setState({loggIn:true});
-        //window.location = '/navbar';
-       // window.open("/navbar");*/
+  
     componentWillUpdate(nextProps, nextState) {
         sessionStorage.setItem('user', JSON.stringify(nextState));
     }
@@ -77,7 +74,10 @@ class RegistrationForm extends Component {
 render(){
     const {errors,formValid} =this.state;
   return(
-        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+        <div>
+          <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
+        <div className="registrationEntireBlock">
+            <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <nav className="navbar navbar-dark">
         <div className="row col-12 d-flex justify-content-center">
         <span className="h5 text-grey">Hi! Welcome to ZestMoney</span>
@@ -115,6 +115,8 @@ render(){
                 </button>
                 {formValid ? <Redirect to="/customerdetails1"/> : <Redirect to="/"/>}
             </form>
+        </div>
+        </div>
         </div>
     )
   }

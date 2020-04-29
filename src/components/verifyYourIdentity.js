@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import './css/verifyYourIdentity.css';
 
 export class VerifyYourIdentity extends React.Component{
-    render(){
+    render(){    
         return (
             <div className="fullContainer">
                 <Container>
@@ -13,7 +13,7 @@ export class VerifyYourIdentity extends React.Component{
                         </Col>
                         <Col >
                             <Row><p className="title">Verify your identity</p></Row>
-                            <Row><p className="bodyText">Please upload a Government ID for KYC verification</p></Row>
+                            <Row><p className="bodyText">{this.props.selfie?'Please upload a selfie and provide personal details for KYC verifiacation':'Please upload a Government ID for KYC verifiacation'}</p></Row>
                         </Col>
                     </Row>
                 </Container>
