@@ -1,52 +1,78 @@
 
 import React, {useState, Component} from 'react';
+import axios from 'axios';
+import {BrowserRouter as Router, Link , Redirect , Prompt} from 'react-router-dom';
 import './registrationForm.css';
 import history from '../../history';
+
+const validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (valid = false)
+    );
+    return valid;
+  }
+  
+  const countErrors = (errors) => {
+    let count = 0;
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (count = count+1)
+    );
+    return count;
+  }
 
 class RegistrationForm extends Component {
     userData;
     constructor(props){
         super(props);
-        this.onChangeName = this.onChangeName.bind(this);
-        this.onChangePassword= this.onChangePassword.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        // this.handleClick = this.handleClick.bind(this);
         this.state={
-        Username:'',
-        Password:''
+        formValid: false,
+        errorCount: null,
+        errors : {
+            Name:'',
+            Pass:'',
         }
+        };
        }
 
+      handleChange = (event) => {
+        event.preventDefault();
+        const { name, value } = event.target;
+        let errors = this.state.errors;
+        
+        switch (name) {
+          case 'Name':
+            errors.Name = 
+              value.length < 5
+                ? 'user name must be 5 characters long!'
+                : '';
+            break;
 
-    onChangeName(e) {
-        this.setState({ Username: e.target.value })
-    }
-
-    onChangePassword(e) {
-        this.setState({ Password: e.target.value })
-    }
-
-    onSubmit(e) {
-        e.preventDefault()
-
-        this.setState({
-            Username:'',
-            Password:''
-        })
-    }
-
-    handleClick(){
-        //alert('ewcwcwe');
-        //window.location.hash = "/navbar";
-        //window.location = '/navbar';
-       history.push("/customerdetails1");
-       // window.open("/navbar");
+          case 'Pass': 
+            errors.Pass = 
+              value.length < 8
+                ? 'password must be 8 characters long!'
+                : '';
+            break;
+          default:
+            break;
+        }
+        this.setState({errors, [name]: value});
       }
-   
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.setState({formValid: validateForm(this.state.errors)});
+        this.setState({errorCount: countErrors(this.state.errors)});
+
+      }
+  
     componentWillUpdate(nextProps, nextState) {
         sessionStorage.setItem('user', JSON.stringify(nextState));
     }
+    
 render(){
+    const {errors,formValid} =this.state;
   return(
         <div>
           <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
@@ -66,22 +92,28 @@ render(){
                        id="username" 
                        aria-describedby="nameHelp" 
                        placeholder="Enter your username"
-                       value={this.state.Username} onChange={this.onChangeName}
+                       name="Name"
+                       onChange={this.handleChange}
                 />
+                {errors.Name.length > 0 && 
+                    <span className='error'>{errors.Name}</span>}
                 </div>
                 <div className="form-group text-left">
                     <label htmlFor="exampleInputPassword1"></label>
-                    <input type="password" 
+                    <input type="password" name="Pass" 
                         className="form-control" 
                         id="password" 
                        placeholder="Enter your password"
-                       value={this.state.Password} onChange={this.onChangePassword}
+                       onChange={this.handleChange}
                     />
+                    {errors.Pass.length > 0 && 
+                        <span className='error'>{errors.Pass}</span>}
                 </div>
                 <button 
-                    type="reset" 
+                    type="submit" 
                     className="btn btn-success btn-block" value="log in" onClick={this.handleClick}>Get OTP
                 </button>
+                {formValid ? <Redirect to="/customerdetails1"/> : <Redirect to="/"/>}
             </form>
         </div>
         </div>
