@@ -1,5 +1,6 @@
 
 import React, {useState, Component} from 'react';
+import './registrationForm.css';
 import history from '../../history';
 
 class RegistrationForm extends Component {
@@ -47,7 +48,10 @@ class RegistrationForm extends Component {
     }
 render(){
   return(
-        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+        <div>
+          <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
+        <div className="registrationEntireBlock">
+            <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <nav className="navbar navbar-dark">
         <div className="row col-12 d-flex justify-content-center">
         <span className="h5 text-grey">Hi! Welcome to ZestMoney</span>
@@ -79,6 +83,8 @@ render(){
                     className="btn btn-success btn-block" value="log in" onClick={this.handleClick}>Get OTP
                 </button>
             </form>
+        </div>
+        </div>
         </div>
     )
   }

@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
+import { VerifyYourIdentity } from '../../components/verifyYourIdentity';
 import {RetakeLooksGood} from '../../components/retakeLooksGood';
+import './SelfieScreen.css'
 
 class SelfieScreenBack extends Component {
     render(){
     return(
-        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
-        <div className="card">
-        <div className="card-header">
+        <div className="">
+            <VerifyYourIdentity selfie={true}/>
+        <div className="selfieRealBody">
+        {/* <div className="card-header">
         <span className="h6 text-muted">Verify your identity</span>
         <br/>
         <span className="text-muted">Please upload a selfie and provide personal details for KYC verifiacation</span>
-        </div>
+        </div> */}
         <div className="card-body">
-        <span className="h6 text-muted">your selfie</span>
+        <span className="h6 text-muted">Your selfie</span>
         <br/>
-        <span className="text-muted">make sure your whole face is visible without any glare or blur</span>
+        <span className="text-muted">Make sure your whole face is visible without any glare or blur</span>
         <br/>
         <br/>
-        <img className="card-img-top" src='./selfie.png' alt="Card image" height="300" />
+        <img className="card-img-top" src='./selfie.png' alt="Card image" height="350" />
         </div>
         {/* <div className="card-footer">
         <div className="container">

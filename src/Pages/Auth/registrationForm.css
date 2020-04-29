@@ -1,0 +1,13 @@
+.registrationCard{
+    border-style: solid;
+    border-color: #f0f0f0;
+    padding-bottom: 20px;
+}
+
+.registrationEntireBlock{
+    margin-top: 25%;
+}
+
+.logoImage{
+    margin-top: 30px;
+}
