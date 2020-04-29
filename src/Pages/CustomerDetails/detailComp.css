@@ -13,3 +13,9 @@ color:rgb(97,97,97);
 font-weight: 600;
 }
 .RoundButton {border-radius: 50%;}
+
+.error {
+    color:#db2269;
+    font-size: 0.625em;
+    display: relative;
+  }
