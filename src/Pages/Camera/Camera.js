@@ -112,7 +112,8 @@ export default class Camera extends Component{
         }
         else{
             return(
-                <div>
+                <div className="detailsCard card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+                <div className="mx-auto">
                 <Div>
     
                     <Overlay toggle={this.state.toggle}></Overlay>
@@ -122,13 +123,16 @@ export default class Camera extends Component{
                     </Text>   
                     <Video id="video" autoPlay ref={(ref)=>{this.video=ref}}></Video>
                     <Cancel  className='btn btn-success' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
-                    <TakeSelfie  className='btn btn-success' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}>Take Selfie</TakeSelfie> 
+                    <TakeSelfie  className='btn btn-primary' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}>Take Selfie</TakeSelfie> 
                     <Canvas id="canvas" width={320} height={640} ref={(ref)=>{this.canvas=ref}}>
                     </Canvas>
                     
                 </Div>
-                <button onClick={this.handletoggle}>Toggle</button>
+                <br/>
+                <button className="btn btn-success btn-block" onClick={this.handletoggle}>Toggle</button>
                 </div>
+                </div>
+
             );
         }
     }
