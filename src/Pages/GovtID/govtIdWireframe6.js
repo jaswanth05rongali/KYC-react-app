@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container, Row, Col} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { VerifyYourIdentity } from '../../components/verifyYourIdentity';
 import { SaveAndContinue } from '../../components/saveAndContinue';
@@ -34,7 +33,7 @@ class GovtIdWireframe6 extends React.Component{
                   </div>
                   <RetakeLooksGood looksGoodPath='/govtid7'/>
               </div>
-              <SaveAndContinue />
+              <SaveAndContinue active={false}/>
             </div>
         );
     }

@@ -8,6 +8,7 @@ import './css/govtIdWireframe7.css'
 class GovtIdWireframe7 extends React.Component{
     constructor(props){
         super(props);
+        sessionStorage.setItem('editIconPath','/govtid6');
         this.state={
             idfront:sessionStorage.getItem('idfront'),
             idback:sessionStorage.getItem('idback')
@@ -26,7 +27,7 @@ class GovtIdWireframe7 extends React.Component{
               </div>
               <div className="finalEmpty">
               </div>
-              <SaveAndContinue />
+              <SaveAndContinue active={true}/>
             </div>
         );
     }

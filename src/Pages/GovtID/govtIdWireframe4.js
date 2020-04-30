@@ -11,6 +11,7 @@ class GovtIdWireframe4 extends React.Component{
       constructor(props){
         super(props);
         sessionStorage.setItem('camera_origin','govtid4');
+        sessionStorage.setItem('editIconPath','/govtid3');
         let frontid=sessionStorage.getItem('idfront')
         this.state={
           front:frontid
@@ -32,7 +33,7 @@ class GovtIdWireframe4 extends React.Component{
                   </div>
                   <ClickPhoto clickPhotoPath={'/govtid6'}/>
               </div>
-              <SaveAndContinue />
+              <SaveAndContinue active={false}/>
             </div>
         );
     }
