@@ -8,7 +8,6 @@ import './SelfieScreen.css'
 class SelfieScreenBack extends Component {
     constructor(props){
         super(props);
-      
         let image = sessionStorage.getItem('selfie');
         sessionStorage.setItem('camera_origin','selfie3');
         this.state={
@@ -39,8 +38,6 @@ class SelfieScreenBack extends Component {
         <div className="text-center"><img className='responsive' src={this.state.photo} alt="Card image" height="300" /></div>
 
         </div>
-        {/* <button onClick={this.handleRetake}>Retake</button>
-        <button onClick={this.handleLooksGood}>Looks Good</button> */}
         <RetakeLooksGood looksGoodPath='/govtid1'/>
         </div></div>
 

@@ -8,19 +8,8 @@ class SelfieScreen extends Component {
     constructor(props){
         super(props);
         sessionStorage.setItem('camera_origin','selfie1');
-        this.state={
-            showcamera:false,
-        }
-        this.handleClick=this.handleClick.bind(this);
     }
-    handleClick(){
-        this.setState({
-            showcamera:false
-        })
-    }
-    render(){
-
-            
+    render(){           
             return(
                 <div className="">
                     <VerifyYourIdentity selfie={true}/>

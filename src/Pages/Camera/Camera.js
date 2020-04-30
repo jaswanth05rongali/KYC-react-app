@@ -21,19 +21,19 @@ export default class Camera extends Component{
                 to='selfie3';
                 break;
             case 'selfie3':
-                to='selfie1';
+                to='selfie3';
                 break;
             case 'govtid1':
                 to='govtid3';
                 break;
             case 'govtid3':
-                to='govtid1';
+                to='govtid3';
                 break;
             case 'govtid4':
                 to='govtid6';
                 break;
             case 'govtid6':
-                to='govtid4';
+                to='govtid6';
                 break;
             default:
                 to='';
@@ -78,17 +78,26 @@ export default class Camera extends Component{
         context.drawImage(this.video,0,0);
 
         let photo = this.canvas.toDataURL('image/webp');
-
+        
         switch (this.state.from) {
-            case (('selfie1')||('selfie3')):
+            case ('selfie1'):
                 sessionStorage.setItem('selfie',photo);
                 break;
-            case(('govtid1')||('govtid3')):
+            case ('selfie3'):
+                sessionStorage.setItem('selfie',photo);
+                break;
+            case('govtid1'):
                 sessionStorage.setItem('idfront',photo);
                 break;
-            case(('govtid4')||('govtid6')):
+            case('govtid3'):
+                sessionStorage.setItem('idfront',photo);
+                break;    
+            case('govtid4'):
                 sessionStorage.setItem('idback',photo);
                 break;
+            case('govtid6'):
+                sessionStorage.setItem('idback',photo);
+                break;    
         }
 
         context.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -98,7 +107,7 @@ export default class Camera extends Component{
     }
     render(){
         if(this.state.showCamera===false){
-            console.log(this.state);
+            
             return <Redirect to={this.state.to}/>
         }
         else{

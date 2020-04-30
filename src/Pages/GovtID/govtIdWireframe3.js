@@ -7,6 +7,14 @@ import { RetakeLooksGood } from '../../components/retakeLooksGood';
 import './css/govtIdWireframe3.css'
 
 class GovtIdWireframe3 extends React.Component{
+    constructor(props){
+      super(props);
+      let image = sessionStorage.getItem('idfront');
+      sessionStorage.setItem('camera_origin','govtid3');
+      this.state={
+          photo:image,
+      }
+  }
     render(){
         return (
             <div>
@@ -19,9 +27,9 @@ class GovtIdWireframe3 extends React.Component{
                       <p className="frontAadhaar">Front of Aadhaar</p>
                       <p>Your name and photo should be clearly visible</p>
                     </div>
-                    <img className="frontIdImage" src={require("./img.png")} height="200" width="300" alt="aadhaar" /> 
+                    <img className="frontIdImage" src={this.state.photo} height="200" width="300" alt="aadhaar" /> 
                   </div>
-                  <RetakeLooksGood looksGoodPath={'/govtid4'} />
+                  <RetakeLooksGood looksGoodPath='/govtid4' />
                 </div>
               </div>
               <SaveAndContinue />
