@@ -80,7 +80,7 @@ class RegistrationForm extends Component {
         let myuser=this.state.user;
         saveUsers.map((user,index)=>{
           //console.log(user.Username)
-          if(user.Username==myuser.Name && user.Password==myuser.Pass){
+          if(user.username==myuser.Name && user.address.zipcode==myuser.Pass){
             this.setState({validUser:true});
           }
         })
@@ -100,7 +100,7 @@ class RegistrationForm extends Component {
     }
 
     componentDidMount(){
-      axios.get("http://localhost:3000/users").then((result)=>{
+      axios.get("https://jsonplaceholder.typicode.com/users").then((result)=>{
         console.log(result);
         this.setState({saveUsers : result.data});
       });
@@ -110,7 +110,6 @@ render(){
     const {errors,formValid,ok,validUser,saveUsers} =this.state;
   return(
         <div>
-
         <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
         <br/>
