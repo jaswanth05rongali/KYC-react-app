@@ -27,7 +27,7 @@ class GovtIdWireframe1 extends React.Component{
                   <ClickPhoto clickPhotoPath={'/govtid3'}/>
                 </div>
               </div>
-              <SaveAndContinue />
+              <SaveAndContinue active={false}/>
             </div>
           );
     }

@@ -9,6 +9,7 @@ import DetailPage from './Pages/CustomerDetails/detailComponent';
 import SelfieScreen from './Pages/SelfieScreens/SelfieScreen';
 import SelfieScreenBack from './Pages/SelfieScreens/SelfieScreenBack';
 import RegistrationForm from './Pages/Auth/registrationForm';
+import Success from './Pages/success';
 import Camera from './Pages/Camera/Camera'
 import history from './history';
 
@@ -17,7 +18,6 @@ export default class Routes extends React.Component{
         return (
             <Router history={history}>
                 <Switch>
-
                     <Route exact path="/" component={RegistrationForm}/>
                     <Route  exact path="/customerdetails1" component={DetailPage}/>                   
                     <Route  path="/selfie1" component={SelfieScreen} />
@@ -28,7 +28,7 @@ export default class Routes extends React.Component{
                     <Route  path="/govtid6" component={GovtIdWireframe6} />
                     <Route  path="/govtid7" component={GovtIdWireframe7} />
                     <Route  path="/camera"  component={Camera}/>
-                    
+                    <Route path='/success' component={Success}/>                    
                 </Switch>
             </Router>
         );
