@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { VerifyYourIdentity } from '../../components/verifyYourIdentity';
 import { ClickPhoto } from '../../components/clickPhoto';
+import './SelfieScreen.css';
 
 
 class SelfieScreen extends Component {
@@ -17,6 +19,7 @@ class SelfieScreen extends Component {
         })
     }
     render(){
+
             
             return(
                 <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
@@ -34,13 +37,13 @@ class SelfieScreen extends Component {
                         <br/>
                         <img className="card-img-top" src="./selfie.png" alt="Card image" height="300"/>
                         </div>
-                        <ClickPhoto />
+                        <ClickPhoto  />
                     </div>
                 </div>
                 
             );
             
-        // }
+
     }
 }
 export default SelfieScreen;
