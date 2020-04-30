@@ -9,8 +9,8 @@ class SelfieScreenBack extends Component {
     constructor(props){
         super(props);
       
-        let image = localStorage.getItem('selfie');
-        localStorage.setItem('camera_origin','selfie3');
+        let image = sessionStorage.getItem('selfie');
+        sessionStorage.setItem('camera_origin','selfie3');
         this.state={
             photo:image,
         }
@@ -36,7 +36,7 @@ class SelfieScreenBack extends Component {
         <br/>
         <br/>
 
-        <img className='responsive' src={this.state.photo} alt="Card image" height="300" />
+        <div className="text-center"><img className='responsive' src={this.state.photo} alt="Card image" height="300" /></div>
 
         </div>
         {/* <button onClick={this.handleRetake}>Retake</button>
