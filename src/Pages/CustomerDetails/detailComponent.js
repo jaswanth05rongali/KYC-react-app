@@ -55,8 +55,8 @@ changegender = (gndr) =>{
                 
  render(){
         return (
-            <div className="detailsEntireBlock">                
-        <div className="detailsCard card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+        <div className="detailsEntireBlock">                
+        <div className="detailsCard card col-12 col-lg-8 login-card mt-2 hv-center mx-auto">
         <div className="card-header">
         <div className="row " >
         <div className="col-2">

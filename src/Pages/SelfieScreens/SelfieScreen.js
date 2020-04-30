@@ -22,7 +22,7 @@ class SelfieScreen extends Component {
 
             
             return(
-                <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+                <div className="card col-12 col-lg-4 login-card mt-2 hv-center mx-auto">
                     <div className="card">
                         <div className="card-header">
                         <span className="h6 text-muted">Verify your identity</span>

@@ -9,23 +9,30 @@ import './css/govtIdWireframe3.css'
 class GovtIdWireframe3 extends React.Component{
     render(){
         return (
-            <div>
-              <div className="frontBodyExceptSave">
-                <VerifyYourIdentity />
-                <div className="frontFullIdBody">
-                  <p className="frontGovtId">Your Government ID</p>
-                  <div className="frontIdBodyNImage">
-                    <div className="frontIdBody">
-                      <p className="frontAadhaar">Front of Aadhaar</p>
-                      <p>Your name and photo should be clearly visible</p>
-                    </div>
-                    <img className="frontIdImage" src={require("./img.png")} height="200" width="300" alt="aadhaar" /> 
-                  </div>
-                  <RetakeLooksGood looksGoodPath={'/govtid4'} />
-                </div>
+
+
+          <div className="detailsCard card col-12 col-lg-8 login-card mt-2 hv-center mx-auto">
+          <div className="frontBodyExceptSave">
+          <VerifyYourIdentity />
+          <div className="frontFullIdBody">
+            <p className="frontGovtId">Your Government ID</p>
+            <div className="frontIdBodyNImage">
+              <div className="frontIdBody">
+                <p className="frontAadhaar">Front of Aadhaar</p>
+                <p>Your name and photo should be clearly visible</p>
               </div>
-              <SaveAndContinue />
+              <img className="frontIdImage card-img-top" src={require("./img.png")} height="200" width="300" alt="aadhaar" /> 
             </div>
+            <RetakeLooksGood looksGoodPath={'/govtid4'} />
+          </div>
+        </div>
+        <SaveAndContinue />
+          </div>
+
+
+
+            
+            
           );
     }
 };

@@ -10,22 +10,25 @@ import './css/govtIdWireframe6.css'
 class GovtIdWireframe6 extends React.Component{
     render(){
         return (
-            <div>
-              <VerifyYourIdentity />
-              <div className="backFullIdBody">
-                  <YourGovtId />
-                  <img className="takenFrontIdImage" src={require("./smallGreyImage.png")} height="70" width="110" alt="ID Front" />
-                  <div className="backIdBodyNImage">
-                    <div className="backIdBody">
-                      <p className="backAadhaar">Back of Aadhaar</p>
-                      <p>Your address should be clearly visible</p>
-                    </div>
-                    <img className="backIdImage" src={require("./img.png")} height="200" width="300" alt="aadhaar" /> 
-                  </div>
-                  <RetakeLooksGood looksGoodPath={'/govtid7'}/>
+
+          <div className="detailsCard card col-12 col-lg-8 login-card mt-2 hv-center mx-auto">
+          <div>
+          <VerifyYourIdentity />
+          <div className="backFullIdBody">
+              <YourGovtId />
+              <img className="takenFrontIdImage" src={require("./smallGreyImage.png")} height="70" width="110" alt="ID Front" />
+              <div className="backIdBodyNImage">
+                <div className="backIdBody">
+                  <p className="backAadhaar">Back of Aadhaar</p>
+                  <p>Your address should be clearly visible</p>
+                </div>
+                <img className="backIdImage" src={require("./img.png")} height="200" width="300" alt="aadhaar" /> 
               </div>
-              <SaveAndContinue />
-            </div>
+              <RetakeLooksGood looksGoodPath={'/govtid7'}/>
+          </div>
+          <SaveAndContinue />
+        </div>
+          </div>
         );
     }
 }
