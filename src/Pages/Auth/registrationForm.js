@@ -1,54 +1,118 @@
 
 import React, {useState, Component} from 'react';
+import axios from 'axios';
 import {BrowserRouter as Router, Link , Redirect , Prompt} from 'react-router-dom';
+import './registrationForm.css';
 import history from '../../history';
+
+const validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (valid = false)
+    );
+    return valid;
+  }
+  
+  const countErrors = (errors) => {
+    let count = 0;
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (count = count+1)
+    );
+    return count;
+  }
 
 class RegistrationForm extends Component {
     userData;
     constructor(props){
         super(props);
-        this.onChangeName = this.onChangeName.bind(this);
-        this.onChangePassword= this.onChangePassword.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-        // this.handleClick = this.handleClick.bind(this);
         this.state={
-        Username:'',
-        Password:''
+        formValid: false,
+        ok : false,
+        validUser : false,
+        errorCount: null,
+        saveUsers: [],
+        user : {
+          Name : '',
+          Pass : ''
+        },
+        errors : {
+            Name:'',
+            Pass:'',
         }
+        };
        }
 
+      handleChange = (event) => {
+        if(!this.state.ok){
+          this.setState({ok:true});
+        }
+        event.preventDefault();
+        const { name, value } = event.target;
+        let errors = this.state.errors;
+        let user = this.state.user;
+        switch (name) {
+          case 'Name':
+            if(value.length>=5) user.Name = value;
+            errors.Name = 
+              value.length < 5
+                ? 'user name must be 5 characters long!'
+                : '';
+            break;
 
-    onChangeName(e) {
-        this.setState({ Username: e.target.value })
-    }
-
-    onChangePassword(e) {
-        this.setState({ Password: e.target.value })
-    }
-
-    onSubmit(e) {
-        e.preventDefault()
-
-        this.setState({
-            Username:'',
-            Password:''
-        })
-    }
-
-    handleClick(){
-        //alert('ewcwcwe');
-        //window.location.hash = "/navbar";
-        //window.location = '/navbar';
-       window.location.href = "/customerdetails1";
-       // window.open("/navbar");
+          case 'Pass':
+            if(value.length>=5) user.Pass = value;
+            errors.Pass = 
+              value.length < 8
+                ? 'password must be 8 characters long!'
+                : '';
+            break;
+          default:
+            break;
+        }
+        this.setState({errors, [name]: value});
+        this.setState({user, [name] : value});
       }
-   
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let user = this.state.user;
+        let saveUsers=this.state.saveUsers;
+        let myuser=this.state.user;
+        saveUsers.map((user,index)=>{
+          //console.log(user.Username)
+          if(user.username==myuser.Name && user.address.zipcode==myuser.Pass){
+            this.setState({validUser:true});
+          }
+        })
+
+      /*  if(user.Name=="nisnt2411" && user.Pass=="12345678"){
+          this.setState({validUser:true});
+        }
+        */
+        if(this.state.ok){
+          this.setState({formValid: validateForm(this.state.errors)});
+          this.setState({errorCount: countErrors(this.state.errors)});
+        }
+      }
+  
     componentWillUpdate(nextProps, nextState) {
         sessionStorage.setItem('user', JSON.stringify(nextState));
     }
+
+    componentDidMount(){
+      axios.get("https://jsonplaceholder.typicode.com/users").then((result)=>{
+        console.log(result);
+        this.setState({saveUsers : result.data});
+      });
+    }
+    
 render(){
+    const {errors,formValid,ok,validUser,saveUsers} =this.state;
   return(
-        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+        <div>
+        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
+        <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
+        <br/>
         <nav className="navbar navbar-dark">
         <div className="row col-12 d-flex justify-content-center">
         <span className="h5 text-grey">Hi! Welcome to ZestMoney</span>
@@ -63,23 +127,35 @@ render(){
                        id="username" 
                        aria-describedby="nameHelp" 
                        placeholder="Enter your username"
-                       value={this.state.Username} onChange={this.onChangeName}
+                       name="Name"
+                       onChange={this.handleChange}
                 />
+                {errors.Name.length > 0 && 
+                    <span className='error'>{errors.Name}</span>}
                 </div>
                 <div className="form-group text-left">
                     <label htmlFor="exampleInputPassword1"></label>
-                    <input type="password" 
+                    <input type="password" name="Pass" 
                         className="form-control" 
                         id="password" 
                        placeholder="Enter your password"
-                       value={this.state.Password} onChange={this.onChangePassword}
+                       onChange={this.handleChange}
                     />
+                    {errors.Pass.length > 0 && 
+                        <span className='error'>{errors.Pass}</span>}
                 </div>
                 <button 
-                    type="reset" 
+                    type="submit" 
                     className="btn btn-success btn-block" value="log in" onClick={this.handleClick}>Get OTP
                 </button>
+                {formValid && ok && validUser ? <Redirect to="/customerdetails1"/> : 
+                !validUser && formValid && ok ?
+                <div class="alert alert-warning alert-dismissible">
+                <a href="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>User not found!</strong>
+              </div> : <Redirect to="/"/>}
             </form>
+        </div>
         </div>
     )
   }

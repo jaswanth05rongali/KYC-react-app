@@ -49,8 +49,9 @@ class DetailPage extends Component {
             }
                 
  render(){
-    return (
-        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+        return (
+            <div className="detailsEntireBlock">                
+        <div className="detailsCard card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
         <div className="card-header">
         <div className="row " >
         <div className="col-2">
@@ -107,7 +108,8 @@ class DetailPage extends Component {
                     </div>
                 </div>
             </div>
-            );
-            }
+            </div>
+        );
+    }
 }
 export default DetailPage;
