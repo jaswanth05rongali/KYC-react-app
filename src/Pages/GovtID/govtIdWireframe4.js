@@ -8,6 +8,14 @@ import './css/govtIdWireframe3.css'
 import './css/govtIdWireframe6.css'
 
 class GovtIdWireframe4 extends React.Component{
+      constructor(props){
+        super(props);
+        sessionStorage.setItem('camera_origin','govtid4');
+        let frontid=sessionStorage.getItem('idfront')
+        this.state={
+          front:frontid
+        }
+    }
     render(){
         return (
             <div>
@@ -15,7 +23,7 @@ class GovtIdWireframe4 extends React.Component{
               <div className="frontFullIdBody">
                   <YourGovtId />
                   <div className="frontIdBodyNImage">
-                    <img className="takenFrontIdImage" src={require("./smallGreyImage.png")} height="70" width="110" alt="ID Front" />
+                    <img className="takenFrontIdImage" src={this.state.front} height="70" width="110" alt="ID Front" />
                     <div className="frontIdBody">
                       <p className="frontAadhaar">Back of Aadhaar</p>
                       <p>Your address should be clearly visible</p>

@@ -7,7 +7,6 @@ import './css/retakeLooksGood.css';
 export class RetakeLooksGood extends React.Component{
     constructor(props){
         super(props);
-        console.log('sdas')
         this.state={
             toRetake:false,
         }

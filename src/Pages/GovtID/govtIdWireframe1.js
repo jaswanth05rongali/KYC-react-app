@@ -6,6 +6,10 @@ import { ClickPhoto } from '../../components/clickPhoto';
 import './css/govtIdWireframe1.css'
 
 class GovtIdWireframe1 extends React.Component{
+  constructor(props){
+    super(props);
+    sessionStorage.setItem('camera_origin','govtid1');
+  }
     render(){
         return (
             <div>

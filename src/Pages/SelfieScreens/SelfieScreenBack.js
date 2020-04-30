@@ -3,7 +3,8 @@ import {RetakeLooksGood} from '../../components/retakeLooksGood';
 class SelfieScreenBack extends Component {
     constructor(props){
         super(props);
-        let image = localStorage.getItem('selfie');
+        let image = sessionStorage.getItem('selfie');
+        sessionStorage.setItem('camera_origin','selfie3');
         this.state={
             photo:image,
         }
@@ -27,8 +28,6 @@ class SelfieScreenBack extends Component {
         <br/>
         <img className='responsive' src={this.state.photo} alt="Card image" height="300" />
         </div>
-        {/* <button onClick={this.handleRetake}>Retake</button>
-        <button onClick={this.handleLooksGood}>Looks Good</button> */}
         <RetakeLooksGood looksGoodPath='/govtid1'/>
         </div></div>
 
