@@ -12,24 +12,29 @@ class DetailPage extends Component {
         this.state={
             username:'',
             dateofbirth:'',
-            gender:'',
-            Username:'',
-            Password:''
-                    };
+            gender:''
+        };
           this.handleChange = this.handleChange.bind(this);
          
               
-         this.changegender = (gndr) =>{
-            this.setState({
-                gender:gndr
-            
-            })}}
+}
         
-
+changegender = (gndr) =>{
+    this.setState({
+        gender:gndr
+    
+    })}
          
         handleChange(event){
             this.setState({
                 [event.target.name]:event.target.value});
+            }
+
+            handleSubmit = (event) => {
+                event.preventDefault();
+              }
+        componentWillUpdate(nextProps, nextState) {
+                sessionStorage.setItem('user', JSON.stringify(nextState));
             }
 
         componentDidMount() {
@@ -68,7 +73,7 @@ class DetailPage extends Component {
                     
                         <Card>
                                 <CardBody>
-                                <Form>
+                                <Form onSubmit={this.handleSubmit}>
                                 <FormGroup row >
                                     <Col>
                                     <CardText className="text-color">Your full name</CardText>
@@ -87,9 +92,9 @@ class DetailPage extends Component {
                                     <Col>
                                         <CardText className="text-color">Your gender</CardText>
                                             <div className="row">
-                                                <div className="col-4"><button  className="RoundButton col-12 btn btn-block btn-outline-primary"  value="Female" onClick={() => this.changegender('Female')}>Female</button></div>
-                                                <div className="col-4"><button className="col-12 RoundButton btn btn-block btn-outline-primary"  value="Male" onClick={() => this.changegender('Male')}>Male</button></div>
-                                                <div className="col-4"><button className="col-12 RoundButton btn btn-block btn-outline-primary"  value="Other" onClick={() => this.changegender('Other')}>Other</button></div>
+                                                <div className="col-4"><button  type="button" className="RoundButton col-12 btn btn-block btn-outline-success"  value="Female" onClick={() => this.changegender('Female')}>Female</button></div>
+                                                <div className="col-4"><button  type="button" className="col-12 RoundButton btn btn-block btn-outline-success"  value="Male" onClick={() => this.changegender('Male')}>Male</button></div>
+                                                <div className="col-4"><button  type="button" className="col-12 RoundButton btn btn-block btn-outline-success"  value="Other" onClick={() => this.changegender('Other')}>Other</button></div>
                                             </div>
                                     </Col>
                                 </FormGroup>
