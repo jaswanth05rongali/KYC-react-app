@@ -7,7 +7,7 @@ import './SelfieScreen.css';
 class SelfieScreen extends Component {
     constructor(props){
         super(props);
-        localStorage.setItem('camera_origin','selfie1');
+        sessionStorage.setItem('camera_origin','selfie1');
         this.state={
             showcamera:false,
         }

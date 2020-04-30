@@ -9,8 +9,8 @@ class SelfieScreenBack extends Component {
     constructor(props){
         super(props);
       
-        let image = localStorage.getItem('selfie');
-        localStorage.setItem('camera_origin','selfie3');
+        let image = sessionStorage.getItem('selfie');
+        sessionStorage.setItem('camera_origin','selfie3');
         this.state={
             photo:image,
         }

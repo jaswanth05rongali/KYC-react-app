@@ -12,7 +12,7 @@ export default class Camera extends Component{
     constructor(props){
         super(props);
 
-        let from = localStorage.getItem('camera_origin');
+        let from = sessionStorage.getItem('camera_origin');
         let toggle = ((from==='selfie1')||(from==='selfie3'))?true:false;
         let to='';
 
@@ -81,13 +81,13 @@ export default class Camera extends Component{
 
         switch (this.state.from) {
             case (('selfie1')||('selfie3')):
-                localStorage.setItem('selfie',photo);
+                sessionStorage.setItem('selfie',photo);
                 break;
             case(('govtid1')||('govtid3')):
-                localStorage.setItem('idfront',photo);
+                sessionStorage.setItem('idfront',photo);
                 break;
             case(('govtid4')||('govtid6')):
-                localStorage.setItem('idback',photo);
+                sessionStorage.setItem('idback',photo);
                 break;
         }
 
