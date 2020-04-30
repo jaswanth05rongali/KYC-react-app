@@ -150,8 +150,8 @@ render(){
                 </button>
                 {formValid && ok && validUser ? <Redirect to="/customerdetails1"/> : 
                 !validUser && formValid && ok ?
-                <div class="alert alert-warning alert-dismissible">
-                <a href="/" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <div className="alert alert-warning alert-dismissible">
+                <a href="/" className="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>User not found!</strong>
               </div> : <Redirect to="/"/>}
             </form>
