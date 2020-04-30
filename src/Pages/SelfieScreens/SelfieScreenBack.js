@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import {RetakeLooksGood} from '../../components/retakeLooksGood';
 class SelfieScreenBack extends Component {
+    constructor(props){
+        super(props);
+        let image = localStorage.getItem('selfie');
+        this.state={
+            photo:image,
+        }
+    }
 
     render(){
     
@@ -22,7 +29,7 @@ class SelfieScreenBack extends Component {
         </div>
         {/* <button onClick={this.handleRetake}>Retake</button>
         <button onClick={this.handleLooksGood}>Looks Good</button> */}
-        <RetakeLooksGood />
+        <RetakeLooksGood looksGoodPath='/govtid1'/>
         </div></div>
 
     )

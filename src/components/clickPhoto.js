@@ -20,8 +20,7 @@ export class ClickPhoto extends React.Component{
     }
     render(){
         if(this.state.clickPhoto===true){
-            // return history.push('/camera');
-            return <Redirect to={`/camera/${this.props.from}`}/>
+             return <Redirect to='/camera'/>
         }
         else{
             return (

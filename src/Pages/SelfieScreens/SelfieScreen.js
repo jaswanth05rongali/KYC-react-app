@@ -3,10 +3,21 @@ import { ClickPhoto } from '../../components/clickPhoto';
 
 
 class SelfieScreen extends Component {
-
-    
+    constructor(props){
+        super(props);
+        localStorage.setItem('camera_origin','selfie1');
+        this.state={
+            showcamera:false,
+        }
+        this.handleClick=this.handleClick.bind(this);
+    }
+    handleClick(){
+        this.setState({
+            showcamera:false
+        })
+    }
     render(){
-        
+            
             return(
                 <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
                     <div className="card">
@@ -21,10 +32,9 @@ class SelfieScreen extends Component {
                         <span className="text-muted">make sure your whole face is visible without any glare or blur</span>
                         <br/>
                         <br/>
-                        <img class="card-img-top" src="./selfie.png" alt="Card image" height="300"/>
+                        <img className="card-img-top" src="./selfie.png" alt="Card image" height="300"/>
                         </div>
-                        {/* <button> Take Selfie </button> */}
-                        <ClickPhoto from='selfie1'/>
+                        <ClickPhoto />
                     </div>
                 </div>
                 
