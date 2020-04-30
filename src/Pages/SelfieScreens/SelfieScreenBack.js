@@ -36,7 +36,7 @@ class SelfieScreenBack extends Component {
         <br/>
         <br/>
 
-        <img className='responsive' src={this.state.photo} alt="Card image" height="300" />
+        <div className="text-center"><img className='responsive' src={this.state.photo} alt="Card image" height="300" /></div>
 
         </div>
         {/* <button onClick={this.handleRetake}>Retake</button>
