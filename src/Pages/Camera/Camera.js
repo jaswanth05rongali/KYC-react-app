@@ -157,6 +157,7 @@ export default class Camera extends Component{
                 <Measure bounds onResize={this.handleResize}>
                     {({measureRef})=>(
                         <Div ref={measureRef} style={{ height: `${this.state.container.height}px` }}>
+                            
                             <Offset ref={(ref)=>{this.Offset=ref}}/>
                             <Ratio  ref={(ref)=>{this.ratio=ref}}/>
                             <Overlay toggle={this.state.toggle}></Overlay>

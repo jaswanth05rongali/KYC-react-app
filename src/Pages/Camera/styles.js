@@ -1,8 +1,5 @@
 import styled , {css} from 'styled-components';
 export const Div=styled.div`
-    /* position: relative;
-    background-color:white;
-    text-align:center; */
     position: fixed;
 	top: 50%;
 	left: 50%;
@@ -21,6 +18,7 @@ export const TakeSelfie = styled.button`
     position:absolute;
     height:50px;
     width:50px;
+    border-color:white;
     border-radius:50%;
     bottom:10%;
     left:50%;
@@ -54,11 +52,10 @@ export const Video = styled.video`
 
 `
 export const TextStyles1 = css`
-    position:absolute;
+    position:fixed;
     text-align:center;
     color:white;
-    height:40px;
-    width:280px;
+    font-size:16px;
     left:50%;
     bottom:20%;
     transform: translate(-50%,-50%);
@@ -66,33 +63,33 @@ export const TextStyles1 = css`
     display:${(props)=>{return props.toggle === false ? 'none':''}};
 `
 export const TextStyles2 = css`
-    position:absolute;
+    position:fixed;
     text-align:center;
     color:white;
-    height:40px;
-    width:280px;
+    width:100%;
+    font-size:16px;
     left:50%;
-    bottom:110%;
-    transform: translate(-50%,600%);
+    bottom:40%;
+    transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === true ? 'none':''}};
     `
 export const TextStyles3 = css`
-    position:absolute;
+   position:fixed;
     text-align:center;
     color:white;
-    height:40px;
-    width:280px;
+    width:100%;
+    font-size:16px;
     left:50%;
-    top:18%;
-    transform: translate(-50%,600%);
+    top:23%;
+    transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === true ? 'none':''}};
 `
 export const OverlayStyles = css`
-    position:absolute;
-    height:${(props)=>{return props.toggle === true ? '320px' : '200px'}};
-    width:${(props)=>{return props.toggle === true ? '240px' : '290px'}};
+    position:fixed;
+    height:${(props)=>{return props.toggle === true ? '50%' : '30%'}};
+    width:${(props)=>{return props.toggle === true ? '70%' : '90%'}};
     left:50%;
     top:40%;
     border:1px solid white;
