@@ -20,7 +20,20 @@
 color:rgb(97,97,97);
 font-weight: 600;
 }
-.RoundButton {border-radius: 50%;}
+.bbutton {
+    background-color:#FFFFFF;
+    border: none;
+    border-style:solid;
+    border-color:#F2F2F2  ;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+  }
 
 .error {
     color:#db2269;
