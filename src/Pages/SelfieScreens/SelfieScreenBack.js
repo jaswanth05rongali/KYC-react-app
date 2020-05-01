@@ -13,6 +13,8 @@ class SelfieScreenBack extends Component {
         this.state={
             photo:image,
         }
+        sessionStorage.setItem('currentPage','/selfie3');
+        sessionStorage.setItem('/govtid1', JSON.stringify(false));
     }
 
     render(){
@@ -38,7 +40,7 @@ class SelfieScreenBack extends Component {
         <div className="text-center"><img className='responsive' src={this.state.photo} alt="Card image" height="300" /></div>
 
         </div>
-        <RetakeLooksGood looksGoodPath='/govtid1'/>
+        <RetakeLooksGood current='/selfie3' looksGoodPath='/govtid1' />
         </div></div>
 
     )

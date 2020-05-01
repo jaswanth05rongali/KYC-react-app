@@ -14,13 +14,15 @@ export class ClickPhoto extends React.Component{
         this.handle=this.handle.bind(this);
     }
     handle(){
+        sessionStorage.setItem('/camera',JSON.stringify(true));
+        sessionStorage.setItem(this.props.current,JSON.stringify(false));
         this.setState({
             clickPhoto:true
         })
     }
     render(){
         if(this.state.clickPhoto===true){
-             return <Redirect to='/camera'/>
+            return <Redirect to="/camera"/>
         }
         else{
             return (

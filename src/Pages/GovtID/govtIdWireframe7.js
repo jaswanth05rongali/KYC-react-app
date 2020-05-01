@@ -9,6 +9,8 @@ class GovtIdWireframe7 extends React.Component{
     constructor(props){
         super(props);
         sessionStorage.setItem('editIconPath','/govtid6');
+        sessionStorage.setItem('currentPage','/govtid7');
+        sessionStorage.setItem('/success',JSON.stringify(false));
         this.state={
             idfront:sessionStorage.getItem('idfront'),
             idback:sessionStorage.getItem('idback')
