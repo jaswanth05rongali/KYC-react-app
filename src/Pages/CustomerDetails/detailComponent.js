@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card, CardText, CardBody, CardTitle, Button, Form, FormGroup, Col, Input} from 'reactstrap';
 import {FaUserAlt} from 'react-icons/fa';
+import {BrowserRouter as Router, Redirect} from 'react-router-dom';
 import history from '../../history';
 import './detailComp.css'
 
@@ -10,11 +11,14 @@ class DetailPage extends Component {
     {
         super(props);
         this.state={
+            validuser:false,
+            validDOB:false,
+            validgender:false,
             username:'',
             dateofbirth:'',
             gender:''
         };
-          this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
          
               
 }
@@ -22,17 +26,46 @@ class DetailPage extends Component {
 changegender = (gndr) =>{
     this.setState({
         gender:gndr
-    
-    })}
+    })
+    this.setState({validgender:true});
+}
          
         handleChange(event){
             this.setState({
-                [event.target.name]:event.target.value});
-            }
+                [event.target.name]:event.target.value}
+                );
+            const { name, value } = event.target;
+            let validDOB=this.state.validDOB;
+            let validuser=this.state.validuser;
+            switch(name){
+                case 'username':
+                   this.setState({validuser:true});
+                case 'dateofbirth':
+                    this.setState({validDOB:true});
 
-            handleSubmit = (event) => {
+            }
+        
+        
+        }
+        handleSubmit = (event) => {
                 event.preventDefault();
-              }
+                let validDOB=this.state.validDOB;
+                let validuser=this.state.validuser;
+                let validgender=this.state.validgender;
+               if(validuser && validgender && validDOB){
+                   this.setState({ok:true});
+                   history.push('/selfie1');
+                }
+                else{
+                    history.push('/customerdetails1');
+                }  
+
+        }
+
+        handleClick(){
+
+
+        }
         componentWillUpdate(nextProps, nextState) {
                 sessionStorage.setItem('user', JSON.stringify(nextState));
             }
@@ -55,8 +88,9 @@ changegender = (gndr) =>{
                 
  render(){
         return (
-            <div className="detailsEntireBlock">                
-        <div className="detailsCard card col-12 col-lg-3 login-card mt-2 hv-center mx-auto">
+        
+        <div className="detailsEntireBlock">                
+        <div className="detailsCard card col-12 col-lg-5 login-card mt-2 hv-center mx-auto">
         <div className="card-header">
         <div className="row " >
         <div className="col-2">
@@ -73,7 +107,7 @@ changegender = (gndr) =>{
                     
                         <Card>
                                 <CardBody>
-                                <Form onSubmit={this.handleSubmit}>
+                                <form onSubmit={this.handleSubmit}>
                                 <FormGroup row >
                                     <Col>
                                     <CardText className="text-color">Your full name</CardText>
@@ -98,18 +132,18 @@ changegender = (gndr) =>{
                                             </div>
                                     </Col>
                                 </FormGroup>
-                                </Form>
+                                <br/>
+                                <FormGroup >
+                                <Col><div className="insidebut">
+                                    <Button className="col-6" type="submit" color="success" onClick={this.handleClick}>
+                                        Continue
+                                    </Button>
+                                    </div>
+                                </Col>
+                 </FormGroup>
+                                </form>
                             </CardBody>
                         </Card>
-                        <br/>
-                        <FormGroup row>
-                                        <Col><div className="insidebut">
-                                            <Button className="col-6" type="login" color="success" onClick={() => history.push('/selfie1')}>
-                                                Continue
-                                            </Button>
-                                            </div>
-                                        </Col>
-                         </FormGroup>
                     </div>
                 </div>
             </div>
