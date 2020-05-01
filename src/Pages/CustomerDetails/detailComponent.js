@@ -96,7 +96,7 @@ changegender = (gndr) =>{
             <FaUserAlt size='2.5rem'/>
         </div>
         <div className="col-10">
-            <CardTitle className="text-dark text-left"><strong>Hi ! {this.state.Username} Help us Setput your account</strong></CardTitle>
+            <CardTitle className="text-dark text-left"><strong>Hi ! {this.state.Username} Help us Setup your account</strong></CardTitle>
             <CardText className="text-dark text-left">We'll verify it your KYC documents</CardText>
         </div>
     </div>
