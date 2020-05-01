@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button} from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
+import history from '../history';
 import './css/saveAndContinue.css';
 
 export class SaveAndContinue extends React.Component{
@@ -13,7 +14,7 @@ export class SaveAndContinue extends React.Component{
                         <Col><p className="sNCBodyText">Your ID or photo will be used only for KYC purpose</p></Col>
                     </Row>
                     <Row>
-                        <Button className="saveAndContinueButton" color="secondary" disabled block>SAVE & CONTINUE</Button>
+                        <Button className="saveAndContinueButton" color={this.props.active?"success":"secondary"} disabled={!this.props.active} onClick={() => history.push('/success')} block>SAVE & CONTINUE</Button>
                     </Row>
                 </Container>
             </div>

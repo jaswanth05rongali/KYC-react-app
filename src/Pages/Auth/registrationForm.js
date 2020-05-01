@@ -1,9 +1,8 @@
 
-import React, {useState, Component} from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
-import {BrowserRouter as Router, Link , Redirect , Prompt} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect} from 'react-router-dom';
 import './registrationForm.css';
-import history from '../../history';
 
 const validateForm = (errors) => {
     let valid = true;

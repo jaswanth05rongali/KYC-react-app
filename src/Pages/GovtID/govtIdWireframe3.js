@@ -32,7 +32,7 @@ class GovtIdWireframe3 extends React.Component{
                   <RetakeLooksGood looksGoodPath='/govtid4' />
                 </div>
               </div>
-              <SaveAndContinue />
+              <SaveAndContinue active={false}/>
             </div>
           );
     }

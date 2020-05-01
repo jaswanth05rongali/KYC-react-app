@@ -152,6 +152,7 @@ export default class Camera extends Component{
         }
         else{
             return(
+
                 <Measure bounds onResize={this.handleResize}>
                     {({measureRef})=>(
                         <Div ref={measureRef} style={{ height: `${this.state.container.height}px` }}>
@@ -177,7 +178,6 @@ export default class Camera extends Component{
                         </Div>
                     )}
                 </Measure>
-                
             );
         }
     }
