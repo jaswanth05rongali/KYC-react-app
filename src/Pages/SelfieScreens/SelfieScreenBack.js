@@ -37,7 +37,7 @@ class SelfieScreenBack extends Component {
         <br/>
         <br/>
 
-        <div className="text-center"><img className='responsive' src={this.state.photo} alt="Card image" height="300" /></div>
+        <div className="text-center"><img className='responsive' src={this.state.photo} alt="Card image" height="200" width="300" /></div>
 
         </div>
         <RetakeLooksGood current='/selfie3' looksGoodPath='/govtid1' />
