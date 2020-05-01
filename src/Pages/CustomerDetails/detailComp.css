@@ -1,9 +1,32 @@
 .detailsEntireBlock{
-    margin-top: 50px;
+    margin-top: auto;
+    
 }
 
-.detailsCard{
-    padding-top: 20px;
+.cardHeader{
+    border-style: solid;
+    border-color: #F5F5F5;
+    background-color: #F5F5F5;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 10px;
+}
+
+.cardText{
+    margin-left: 20px;
+}
+
+.Icon{
+    padding-top: 4px;
+    padding-left: 25px;
+}
+
+.cardBody{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .rowname {

@@ -113,7 +113,7 @@ render(){
     const {errors,formValid,ok,validUser,saveUsers} =this.state;
   return(
         <div>
-        <div className="card col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
+        <div className="col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
         <br/>
         <nav className="navbar navbar-dark">
