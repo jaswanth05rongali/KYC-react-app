@@ -47,21 +47,22 @@ changegender = (gndr) =>{
 
         handleSubmit = (event) => {
             event.preventDefault();
+            let validDOB=this.state.validDOB;
+            let validuser=this.state.validuser;
+            let validgender=this.state.validgender;
+            sessionStorage.setItem('/selfie1',JSON.stringify(true));
+            sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
+               if(validuser && validgender && validDOB){
+                   this.setState({ok:true});
+                  return history.push('/selfie1');
+                }
+                else{
+                    return history.push('/customerdetails1');
+                }
         }
         
         handleClick(){
-            sessionStorage.setItem('/selfie1',JSON.stringify(true));
-            sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
-            // let validDOB=this.state.validDOB;
-            // let validuser=this.state.validuser;
-            // let validgender=this.state.validgender;
-            //    if(validuser && validgender && validDOB){
-            //        this.setState({ok:true});
-                   return history.push('/selfie1');
-            //     }
-            //     else{
-            //         return history.push('/customerdetails1');
-            //     }
+
         }
 
         componentWillUpdate(nextProps, nextState) {
