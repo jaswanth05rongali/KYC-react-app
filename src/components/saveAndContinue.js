@@ -7,9 +7,11 @@ import './css/saveAndContinue.css';
 export class SaveAndContinue extends React.Component{
     constructor(props){
         super(props);
+        this.handleClick=this.handleClick.bind(this);
     }
     handleClick(){
         sessionStorage.setItem('/success',JSON.stringify(true));
+        sessionStorage.setItem(this.props.current,JSON.stringify(false));
         return history.push('/success');
     }
     render(){

@@ -29,7 +29,7 @@ class GovtIdWireframe7 extends React.Component{
               </div>
               <div className="finalEmpty">
               </div>
-              <SaveAndContinue active={true}/>
+              <SaveAndContinue current='/govtid7' active={true}/>
             </div>
         );
     }
