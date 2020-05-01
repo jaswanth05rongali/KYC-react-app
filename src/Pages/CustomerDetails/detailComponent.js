@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {Card, CardText, CardBody, CardTitle, Button, Form, FormGroup, Col, Input} from 'reactstrap';
-import {FaUserAlt} from 'react-icons/fa';
-import {BrowserRouter as Router, Redirect} from 'react-router-dom';
 import history from '../../history';
 import './detailComp.css'
 
@@ -89,14 +87,14 @@ changegender = (gndr) =>{
         return (
         
         <div className="detailsEntireBlock">                
-        <div className="detailsCard card col-12 col-lg-5 login-card mt-2 hv-center mx-auto">
-        <div className="card-header">
+        <div className="detailsCard">
+        <div className="cardHeader">
         <div className="row " >
-        <div className="col-2">
-            <FaUserAlt size='2.5rem'/>
+        <div className="Icon">
+            <img src={require('./icon3.png')} height="55" width="55" alt="icon" />
         </div>
-        <div className="col-10">
-            <CardTitle className="text-dark text-left"><strong>Hi ! {this.state.Username} Help us Setup your account</strong></CardTitle>
+        <div className="cardText">
+            <div style={{fontSize:'20px',marginBottom:'0px'}}><CardTitle className="text-dark text-left"><strong>Hi ! {this.state.Username} Help us Setup your account</strong></CardTitle></div>
             <CardText className="text-dark text-left">We'll verify it your KYC documents</CardText>
         </div>
     </div>
@@ -104,14 +102,14 @@ changegender = (gndr) =>{
                 <div className="row row-content justify-content-center">
                     <div className="col-12">
                     
-                        <Card>
+                        <Card className="cardBody">
                                 <CardBody>
                                 <form onSubmit={this.handleSubmit}>
                                 <FormGroup row >
                                     <Col>
                                     <CardText className="text-color">Your full name</CardText>
                                     <Input type="text" name="username" placeholder="eg: Raj Kumar Babu" required onChange={this.handleChange}/>
-                                    <CardText className="text-muted text-left">Ensure it matches name on your PAN</CardText>
+                                    <div style={{marginTop:'4px'}}><CardText className="text-muted text-left">Ensure it matches name on your PAN</CardText></div>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row >
