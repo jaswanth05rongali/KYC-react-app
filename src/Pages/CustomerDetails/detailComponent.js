@@ -125,9 +125,9 @@ changegender = (gndr) =>{
                                     <Col>
                                         <CardText className="text-color">Your gender</CardText>
                                             <div className="row">
-                                                <div className="col-4"><button  type="button" className="RoundButton col-12 btn btn-block btn-outline-success"  value="Female" onClick={() => this.changegender('Female')}>Female</button></div>
-                                                <div className="col-4"><button  type="button" className="col-12 RoundButton btn btn-block btn-outline-success"  value="Male" onClick={() => this.changegender('Male')}>Male</button></div>
-                                                <div className="col-4"><button  type="button" className="col-12 RoundButton btn btn-block btn-outline-success"  value="Other" onClick={() => this.changegender('Other')}>Other</button></div>
+                                                <div className="col-4"><button  type="button" className="bbutton col-12 btn btn-block btn-outline-success"  value="Female" onClick={() => this.changegender('Female')}>Female</button></div>
+                                                <div className="col-4"><button  type="button" className="bbutton RoundButton btn btn-block btn-outline-success"  value="Male" onClick={() => this.changegender('Male')}>Male</button></div>
+                                                <div className="col-4"><button  type="button" className="bbutton RoundButton btn btn-block btn-outline-success"  value="Other" onClick={() => this.changegender('Other')}>Other</button></div>
                                             </div>
                                     </Col>
                                 </FormGroup>
