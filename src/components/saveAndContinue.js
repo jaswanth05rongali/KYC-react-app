@@ -5,6 +5,13 @@ import history from '../history';
 import './css/saveAndContinue.css';
 
 export class SaveAndContinue extends React.Component{
+    constructor(props){
+        super(props);
+    }
+    handleClick(){
+        sessionStorage.setItem('/success',JSON.stringify(true));
+        return history.push('/success');
+    }
     render(){
         return (
             <div className="sNCFullBody">
@@ -14,7 +21,7 @@ export class SaveAndContinue extends React.Component{
                         <Col><p className="sNCBodyText">Your ID or photo will be used only for KYC purpose</p></Col>
                     </Row>
                     <Row>
-                        <Button className="saveAndContinueButton" color={this.props.active?"success":"secondary"} disabled={!this.props.active} onClick={() => history.push('/success')} block>SAVE & CONTINUE</Button>
+                        <Button className="saveAndContinueButton" color={this.props.active?"success":"secondary"} disabled={!this.props.active} onClick={this.handleClick} block>SAVE & CONTINUE</Button>
                     </Row>
                 </Container>
             </div>

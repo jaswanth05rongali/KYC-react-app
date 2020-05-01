@@ -22,6 +22,7 @@ export default class Camera extends Component{
     
     constructor(props){
         super(props);
+        sessionStorage.setItem('currentPage','/camera');
 
         let from = sessionStorage.getItem('camera_origin');
         let toggle = ((from==='selfie1')||(from==='selfie3'))?true:false;
@@ -58,9 +59,7 @@ export default class Camera extends Component{
             container:{height:360,width:640},
             aspectRatio:1.582,
         }
-
-        
-
+        sessionStorage.setItem('/'+this.state.to, JSON.stringify(false));
         this.startcamera=this.startcamera.bind(this);
         this.stopcamera=this.stopcamera.bind(this);
         this.takephoto=this.takephoto.bind(this);
@@ -84,6 +83,8 @@ export default class Camera extends Component{
         .catch(err=>console.log(err))
     }
     stopcamera(){
+        sessionStorage.setItem('/'+this.state.from, JSON.stringify(true));
+        sessionStorage.setItem('/camera',JSON.stringify(false));
         this.video.srcObject.getTracks().map((track)=>{track.stop()});
         this.setState({showCamera:false,to:this.state.from});
     }
@@ -136,7 +137,8 @@ export default class Camera extends Component{
         context.clearRect(0,0,this.canvas.width,this.canvas.height);
         this.video.srcObject.getTracks().map((track)=>{track.stop()});
         this.setState({showCamera:false});
-        
+        sessionStorage.setItem('/'+this.state.to, JSON.stringify(true));
+        sessionStorage.setItem('/camera',JSON.stringify(false));
     }
     handleResize(contentRect){
         let ratio = this.state.aspectRatio
@@ -147,7 +149,6 @@ export default class Camera extends Component{
     }
     render(){
         if(this.state.showCamera===false){
-            
             return <Redirect to={this.state.to}/>
         }
         else{

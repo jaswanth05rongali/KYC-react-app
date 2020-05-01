@@ -9,6 +9,8 @@ class GovtIdWireframe1 extends React.Component{
   constructor(props){
     super(props);
     sessionStorage.setItem('camera_origin','govtid1');
+    sessionStorage.setItem('currentPage','/govtid1');
+    sessionStorage.setItem('/camera',JSON.stringify(false));
   }
     render(){
         return (
@@ -24,7 +26,7 @@ class GovtIdWireframe1 extends React.Component{
                     </div>
                     <div className="text-center"><img className="firstIdImage" src={require("./aadhaar-front.png")} height="170" alt="aadhaar" /></div>
                   </div>
-                  <ClickPhoto clickPhotoPath={'/govtid3'}/>
+                  <ClickPhoto current="/govtid1" next="/govtid3" clickPhotoPath={'/govtid3'}/>
                 </div>
               </div>
               <SaveAndContinue active={false}/>

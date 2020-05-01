@@ -1,4 +1,5 @@
 import React from 'react';
+import PrivateRoute from './components/privateRoute';
 import {Router, Switch,Redirect, Route} from 'react-router-dom';
 import GovtIdWireframe1 from './Pages/GovtID/govtIdWireframe1';
 import GovtIdWireframe3 from './Pages/GovtID/govtIdWireframe3';
@@ -19,16 +20,16 @@ export default class Routes extends React.Component{
             <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={RegistrationForm}/>
-                    <Route  exact path="/customerdetails1" component={DetailPage}/>                   
-                    <Route  path="/selfie1" component={SelfieScreen} />
-                    <Route  path="/selfie3" component={SelfieScreenBack} />
-                    <Route  path="/govtid1" component={GovtIdWireframe1} />
-                    <Route  path="/govtid3" component={GovtIdWireframe3} />
-                    <Route  path="/govtid4" component={GovtIdWireframe4} />
-                    <Route  path="/govtid6" component={GovtIdWireframe6} />
-                    <Route  path="/govtid7" component={GovtIdWireframe7} />
-                    <Route  path="/camera"  component={Camera}/>
-                    <Route path='/success' component={Success}/>                    
+                    <PrivateRoute  path="/customerdetails1" component={DetailPage}/>                   
+                    <PrivateRoute  path="/selfie1" component={SelfieScreen} />
+                    <PrivateRoute  path="/selfie3" component={SelfieScreenBack} />
+                    <PrivateRoute  path="/govtid1" component={GovtIdWireframe1} />
+                    <PrivateRoute  path="/govtid3" component={GovtIdWireframe3} />
+                    <PrivateRoute  path="/govtid4" component={GovtIdWireframe4} />
+                    <PrivateRoute  path="/govtid6" component={GovtIdWireframe6} />
+                    <PrivateRoute  path="/govtid7" component={GovtIdWireframe7} />
+                    <PrivateRoute  path="/camera"  component={Camera}/>
+                    <PrivateRoute path='/success' component={Success}/>                    
                 </Switch>
             </Router>
         );

@@ -12,6 +12,8 @@ class GovtIdWireframe4 extends React.Component{
         super(props);
         sessionStorage.setItem('camera_origin','govtid4');
         sessionStorage.setItem('editIconPath','/govtid3');
+        sessionStorage.setItem('currentPage','/govtid4');
+        sessionStorage.setItem('/govtid6',JSON.stringify(false));
         let frontid=sessionStorage.getItem('idfront')
         this.state={
           front:frontid
@@ -31,7 +33,7 @@ class GovtIdWireframe4 extends React.Component{
                     </div>
                     <div className="text-center"><img className="originalId" src={require("./aadhaar-back.png")} alt="aadhaar" height="170px"/></div> 
                   </div>
-                  <ClickPhoto clickPhotoPath={'/govtid6'}/>
+                  <ClickPhoto current="/govtid4" next="/govtid6" clickPhotoPath={'/govtid6'}/>
               </div>
               <SaveAndContinue active={false}/>
             </div>

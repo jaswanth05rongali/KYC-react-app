@@ -11,9 +11,17 @@ export class RetakeLooksGood extends React.Component{
             toRetake:false,
         }
         this.handleRetake=this.handleRetake.bind(this);
+        this.handleLooksGood=this.handleLooksGood.bind(this);
     }
     handleRetake(){
-        this.setState({toRetake:true})
+        sessionStorage.setItem('/camera',JSON.stringify(true));
+        sessionStorage.setItem(this.props.current,JSON.stringify(false));
+        this.setState({toRetake:true});
+    }
+    handleLooksGood(){
+        sessionStorage.setItem(this.props.current,JSON.stringify(false));
+        sessionStorage.setItem(this.props.looksGoodPath,JSON.stringify(true));
+        return history.push(this.props.looksGoodPath);
     }
     render(){
         if(this.state.toRetake===true){
@@ -25,7 +33,7 @@ export class RetakeLooksGood extends React.Component{
             <Container className="bottomButtons">
                 <Row>
                     <Col><Button color="outline-success" onClick={this.handleRetake} block>RETAKE</Button></Col>
-                    <Col><Button color="success" onClick={() => history.push(this.props.looksGoodPath)} block>LOOKS GOOD</Button></Col>
+                    <Col><Button color="success" onClick={this.handleLooksGood} block>LOOKS GOOD</Button></Col>
                 </Row>
             </Container>
             </div>

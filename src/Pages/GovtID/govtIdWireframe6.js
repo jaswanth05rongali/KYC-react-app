@@ -12,6 +12,8 @@ class GovtIdWireframe6 extends React.Component{
       let backid = sessionStorage.getItem('idback');
       let frontid = sessionStorage.getItem('idfront');
       sessionStorage.setItem('camera_origin','govtid6');
+      sessionStorage.setItem('currentPage','/govtid6');
+      sessionStorage.setItem('/govtid7',JSON.stringify(false));
       this.state={
           front:frontid,
           back:backid
@@ -31,7 +33,7 @@ class GovtIdWireframe6 extends React.Component{
                     </div>
                     <img className="backIdImage" src={this.state.back} height="200" width="300" alt="aadhaar" /> 
                   </div>
-                  <RetakeLooksGood looksGoodPath='/govtid7'/>
+                  <RetakeLooksGood current='/govtid6' looksGoodPath='/govtid7'/>
               </div>
               <SaveAndContinue active={false}/>
             </div>
