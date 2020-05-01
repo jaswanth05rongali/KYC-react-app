@@ -39,6 +39,7 @@ class RegistrationForm extends Component {
             Pass:'',
         }
         };
+        sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
        }
 
       handleChange = (event) => {
@@ -92,6 +93,7 @@ class RegistrationForm extends Component {
           this.setState({formValid: validateForm(this.state.errors)});
           this.setState({errorCount: countErrors(this.state.errors)});
         }
+        sessionStorage.setItem('/customerdetails1',JSON.stringify(true));
       }
   
     componentWillUpdate(nextProps, nextState) {

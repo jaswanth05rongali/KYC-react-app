@@ -15,8 +15,8 @@ class DetailPage extends Component {
             gender:''
         };
           this.handleChange = this.handleChange.bind(this);
-         
-              
+        sessionStorage.setItem('currentPage','/customerdetails1');
+        sessionStorage.setItem('/selfie1',JSON.stringify(false));              
 }
         
 changegender = (gndr) =>{
@@ -30,9 +30,16 @@ changegender = (gndr) =>{
                 [event.target.name]:event.target.value});
             }
 
-            handleSubmit = (event) => {
-                event.preventDefault();
-              }
+        handleSubmit = (event) => {
+            event.preventDefault();
+        }
+        
+        handleClick(){
+            sessionStorage.setItem('/selfie1',JSON.stringify(true));
+            sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
+            return history.push('/selfie1');
+        }
+
         componentWillUpdate(nextProps, nextState) {
                 sessionStorage.setItem('user', JSON.stringify(nextState));
             }
@@ -104,7 +111,7 @@ changegender = (gndr) =>{
                         <br/>
                         <FormGroup row>
                                         <Col><div className="insidebut">
-                                            <Button className="col-6" type="login" color="success" onClick={() => history.push('/selfie1')}>
+                                            <Button className="col-6" type="login" color="success" onClick={this.handleClick}>
                                                 Continue
                                             </Button>
                                             </div>

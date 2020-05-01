@@ -8,6 +8,8 @@ class SelfieScreen extends Component {
     constructor(props){
         super(props);
         sessionStorage.setItem('camera_origin','selfie1');
+        sessionStorage.setItem('currentPage','/selfie1');
+        sessionStorage.setItem('/camera',JSON.stringify(false));
     }
     render(){           
             return(
@@ -27,7 +29,7 @@ class SelfieScreen extends Component {
                         <br/>
                         <img className="card-img-top" src="./selfie.png" alt="Card image" height="325"/>
                         </div>
-                        <ClickPhoto  />
+                        <ClickPhoto  current="/selfie1" next="/selfie3"/>
                     </div>
                 </div>
                 
