@@ -29,3 +29,30 @@
     border-color: #f0f0f0;
     margin-top: 15px;
 }
+
+.scrollWrapper{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-bottom: 15px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.id{
+  display: inline;
+}
+
+.idButton{
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: #c0c0c0;
+  color: #a4a4a4;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 17px;
+  margin-left: 10px;
+}

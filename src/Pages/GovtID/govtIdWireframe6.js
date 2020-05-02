@@ -28,7 +28,7 @@ class GovtIdWireframe6 extends React.Component{
                   <img className="takenFrontIdImage" src={this.state.front} height="70" width="110" alt="ID Front" />
                   <div className="backIdBodyNImage">
                     <div className="backIdBody">
-                      <p className="backAadhaar">Back of Aadhaar</p>
+                      <p className="backAadhaar">Back of {sessionStorage.getItem('ID')}</p>
                       <p>Your address should be clearly visible</p>
                     </div>
                     <img className="backIdImage" src={this.state.back} height="200" width="300" alt="aadhaar" /> 
