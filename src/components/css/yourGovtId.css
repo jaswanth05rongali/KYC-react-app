@@ -1,5 +1,19 @@
+html{
+    --primary-color: #fff;
+    --primary: #000000;
+    --card: #F5F5F5;
+    --form: rgb(97,97,97);
+}
+
+html[data-theme="dark"]{
+    --primary-color: #000000;
+    --primary: #fff;
+    --card: #353839;
+    --form: #F0FFF0;
+}
+
 .govtId{
-    background-color: #ffffff;
+    background-color: var(--primary-color);
     padding-top: 20px;
     padding-bottom: 10px;
     margin-bottom: auto;

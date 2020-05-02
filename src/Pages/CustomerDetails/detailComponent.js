@@ -94,8 +94,8 @@ changegender = (gndr) =>{
             <img src={require('./icon3.png')} height="55" width="55" alt="icon" />
         </div>
         <div className="cardText">
-            <div style={{fontSize:'20px',marginBottom:'0px'}}><CardTitle className="text-dark text-left"><strong>Hi ! {this.state.Username} Help us Setup your account</strong></CardTitle></div>
-            <CardText className="text-dark text-left">We'll verify it with your KYC documents</CardText>
+            <div style={{fontSize:'20px',marginBottom:'0px'}}><CardTitle className="text-left"><strong>Hi ! {this.state.Username} Help us Setup your account</strong></CardTitle></div>
+            <CardText className="text-left">We'll verify it with your KYC documents</CardText>
         </div>
     </div>
         </div>

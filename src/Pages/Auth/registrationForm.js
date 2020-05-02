@@ -37,7 +37,9 @@ class RegistrationForm extends Component {
         errors : {
             Name:'',
             Pass:'',
-        }
+        },
+        checked : localStorage.getItem("theme") === "dark" ? true : false,
+        theme : localStorage.getItem("theme")
         };
         sessionStorage.setItem('currentPage','/');
         sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
@@ -103,16 +105,48 @@ class RegistrationForm extends Component {
     }
 
     componentDidMount(){
+      document
+      .getElementsByTagName("HTML")[0]
+      .setAttribute("data-theme", localStorage.getItem("theme"));
       axios.get("https://jsonplaceholder.typicode.com/users").then((result)=>{
         console.log(result);
         this.setState({saveUsers : result.data});
       });
     }
+
+    toggleThemeChange = () => {
+      const { checked } = this.state;
+      if (checked === false) {
+        localStorage.setItem("theme", "dark");
+        document
+          .getElementsByTagName("HTML")[0]
+          .setAttribute("data-theme", localStorage.getItem("theme"));
+        this.setState({
+          checked: true
+        });
+      } else {
+        localStorage.setItem("theme", "light");
+        document
+          .getElementsByTagName("HTML")[0]
+          .setAttribute("data-theme", localStorage.getItem("theme"));
+        this.setState({
+          checked: false
+        });
+      }
+    };
     
 render(){
     const {errors,formValid,ok,validUser,saveUsers} =this.state;
   return(
         <div>
+          <label className="switch">
+          <input type="checkbox"
+                // checked={this.state.checked}
+                defaultChecked={this.state.checked}
+                onChange={() => this.toggleThemeChange()}
+              />
+            <span className="slider round" />
+          </label>
         <div className="col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <div className="text-center logoImage"><img src="logo_green.png" height="100px" width="300px" alt="Logo"/></div>
         <br/>

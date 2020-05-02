@@ -1,8 +1,20 @@
 
+html{
+    --primary: #000000;
+    --card: #F5F5F5;
+    --form: rgb(97,97,97);
+}
+
+html[data-theme="dark"]{
+    --primary: #fff;
+    --card: #353839;
+    --form: #F0FFF0;
+}
+
 .fullContainer{
     border-style: solid;
-    border-color: #F5F5F5;
-    background-color: #F5F5F5;
+    border-color: var(--card);
+    background-color: var(--card);
     margin-top: 8px;
     margin-left: 10px;
     margin-right: 10px;

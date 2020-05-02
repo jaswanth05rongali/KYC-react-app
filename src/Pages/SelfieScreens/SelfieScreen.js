@@ -21,7 +21,7 @@ class SelfieScreen extends Component {
                         <br/>
                         <span className="text-muted">Please upload a selfie and provide personal details for KYC verifiacation</span>
                         </div> */}
-                        <div className="card-body">
+                        <div className="card-body txt-clr">
                         <span className="h6 text-muted">Take a selfie</span>
                         <br/>
                         <span className="text-muted">Make sure your whole face is visible without any glare or blur</span>

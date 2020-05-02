@@ -1,0 +1,21 @@
+html{
+    --primary-color: #FFF;
+    --secondary-color: #000000;
+    --card: #F5F5F5;
+    --form: rgb(97,97,97);
+}
+
+html[data-theme="dark"]{
+    --primary-color: #000000;
+    --secondary-color: #FFF;
+    --card: #353839;
+    --form: #F0FFF0;
+}
+
+input[type=text]{
+    background-color: var(--primary-color);
+}
+
+input[type=date]{
+    background-color: var(--primary-color);
+}

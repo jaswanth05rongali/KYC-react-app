@@ -1,6 +1,18 @@
+html{
+    --primary: #000000;
+    --card: #F5F5F5;
+    --form: rgb(97,97,97);
+}
+
+html[data-theme="dark"]{
+    --primary: #fff;
+    --card: #353839;
+    --form: #F0FFF0;
+}
+
 .selfieDummyBody{
     border-style: solid;
-    border-color: #f5f5f5;
+    border-color: var(--card);
     margin-top: 15px;
     margin-left: 10px;
     margin-right: 10px;
@@ -9,7 +21,7 @@
 .selfieRealBody{
     margin-bottom: 15px;
     border-style: solid;
-    border-color: #f5f5f5;
+    border-color: var(--card);
     margin-top: 15px;
     margin-left: 10px;
     margin-right: 10px;
