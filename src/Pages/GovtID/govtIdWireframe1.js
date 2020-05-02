@@ -9,7 +9,8 @@ class GovtIdWireframe1 extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      id: "Aadhaar"
+      id: "Aadhaar",
+      aadhaarClass: "idButton active btn btn-outline-primary"
     };
     sessionStorage.setItem('IDImage','./aadhaar-front.png');
     sessionStorage.setItem('camera_origin','govtid1');
@@ -34,7 +35,8 @@ class GovtIdWireframe1 extends React.Component{
     }
     sessionStorage.setItem('IDImage',returnPath);
     this.setState({
-      id: ID
+      id: ID,
+      aadhaarClass: "idButton btn btn-outline-primary"
     })    
   }    
   
@@ -46,7 +48,7 @@ class GovtIdWireframe1 extends React.Component{
           <div className="firstFullIdBody">
             <p className="firstGovtId">Select a Government ID</p>
             <div className="scrollWrapper">
-              <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="Aadhaar" onClick={() => this.changeId("Aadhaar")}>Aadhaar</button></div>
+              <div className="id"><button type="button" className={this.state.aadhaarClass} value="Aadhaar" onClick={() => this.changeId("Aadhaar")}>Aadhaar</button></div>
               <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="PAN" onClick={() => this.changeId("PAN")}>PAN</button></div>
               <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="Driving License" onClick={() => this.changeId("Driving License")}>Driving License</button></div>
               <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="Passport" onClick={() => this.changeId("Passport")}>Passport</button></div>

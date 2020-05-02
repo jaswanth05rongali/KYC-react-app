@@ -12,6 +12,7 @@ class GovtIdWireframe6 extends React.Component{
       let backid = sessionStorage.getItem('idback');
       let frontid = sessionStorage.getItem('idfront');
       sessionStorage.setItem('camera_origin','govtid6');
+      sessionStorage.setItem('editIconPath','/govtid3');
       sessionStorage.setItem('currentPage','/govtid6');
       sessionStorage.setItem('/govtid7',JSON.stringify(false));
       this.state={
