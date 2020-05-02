@@ -32,6 +32,7 @@ export default class Camera extends Component{
     
     constructor(props){
         super(props);
+
         sessionStorage.setItem('currentPage','/camera');
 
         let from = sessionStorage.getItem('camera_origin');
@@ -72,10 +73,20 @@ export default class Camera extends Component{
         this.stopcamera=this.stopcamera.bind(this);
         this.takephoto=this.takephoto.bind(this);
         this.handletoggle=this.handletoggle.bind(this);
-        
+
     }
     componentDidMount(){
         this.startcamera();
+        setTimeout(() => {
+            this.photobutton.disabled=false;
+            this.stopbutton.disabled=false;
+            this.tips.disabled=false;
+            this.gallery.disabled=false;
+        }, 1000);
+        this.photobutton.disabled=true;
+        this.stopbutton.disabled=true;
+        this.tips.disabled=true;
+        this.gallery.disabled=true;
     }
     handletoggle(){
         this.setState({
@@ -151,6 +162,7 @@ export default class Camera extends Component{
         this.setState({showCamera:false});
         sessionStorage.setItem('/'+this.state.to, JSON.stringify(true));
         sessionStorage.setItem('/camera',JSON.stringify(false));
+
     }
     
     render(){
@@ -161,6 +173,7 @@ export default class Camera extends Component{
             return(
                     <div>
                         <Div>
+
                             <Dashboard1/><Dashboard2/>
                             <Overlay toggle={this.state.toggle}></Overlay>
                             <T1 toggle={this.state.toggle}>
@@ -181,11 +194,11 @@ export default class Camera extends Component{
                             </T5>
 
                             <Video id="video" autoPlay ref={(ref)=>{this.video=ref}}></Video>
-                            <Cancel  className='btn btn-success' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
+                            <Cancel  className='btn' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
                             <TakeSelfie  className='btn' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}></TakeSelfie>
                             
-                            <Gallery>Gallery</Gallery>
-                            <Tips>Tips</Tips> 
+                            <Gallery className='btn' ref={(ref)=>{this.gallery=ref}}>Gallery</Gallery>
+                            <Tips className='btn' ref={(ref)=>{this.tips=ref}}>Tips</Tips> 
                             <Canvas id="canvas" ref={(ref)=>{this.canvas=ref}}></Canvas>
 
                         </Div>
