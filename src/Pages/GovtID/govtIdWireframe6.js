@@ -24,7 +24,7 @@ class GovtIdWireframe6 extends React.Component{
             <div>
               <VerifyYourIdentity />
               <div className="backFullIdBody">
-                  <YourGovtId />
+                  <YourGovtId current="/govtid6"/>
                   <img className="takenFrontIdImage" src={this.state.front} height="70" width="110" alt="ID Front" />
                   <div className="backIdBodyNImage">
                     <div className="backIdBody">

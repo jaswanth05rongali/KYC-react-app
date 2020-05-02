@@ -14,7 +14,13 @@
 }
 
 .pencilIconColumn{
-   padding-top: 22px;
+   padding-top: 12px;
+}
+
+.pencilButton{
+    border: none;
+    background-color: #ffffff;
+    float: right;
 }
   
   
