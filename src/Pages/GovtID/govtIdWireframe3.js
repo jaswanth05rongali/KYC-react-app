@@ -26,7 +26,7 @@ class GovtIdWireframe3 extends React.Component{
                   <p className="frontGovtId">Your Government ID</p>
                   <div className="frontIdBodyNImage">
                     <div className="frontIdBody">
-                      <p className="frontAadhaar">Front of Aadhaar</p>
+                      <p className="frontAadhaar">Front of {sessionStorage.getItem('ID')}</p>
                       <p>Your name and photo should be clearly visible</p>
                     </div>
                     <img className="frontIdImage" src={this.state.photo} height="200" width="300" alt="aadhaar" /> 
