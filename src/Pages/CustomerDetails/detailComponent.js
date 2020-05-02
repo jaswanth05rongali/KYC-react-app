@@ -115,7 +115,7 @@ changegender = (gndr) =>{
                                 <FormGroup row >
                                     <Col>
                                     <CardText className="text-color">Your date of birth</CardText>
-                                    <Input type="date" name="dateofbirth" placeholder="DD/MM/YYYY" onChange={this.handleChange}/>
+                                    <Input type="date" name="dateofbirth" placeholder="DD/MM/YYYY" required onChange={this.handleChange}/>
                                     
                                     </Col>
                                 </FormGroup>
