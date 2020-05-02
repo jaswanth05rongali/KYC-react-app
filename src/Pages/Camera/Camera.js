@@ -168,13 +168,13 @@ export default class Camera extends Component{
                                 oval and is clearly visible
                             </T1>
                             <T2 toggle={this.state.toggle}>
-                                Fit {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'front':'back'} side of Aadhar card inside the box
+                                Fit {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'front':'back'} side of {sessionStorage.getItem('ID')} card inside the box
                             </T2>
                             <T3 toggle={this.state.toggle}>
                                 Your {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'Name and Photo':'Address'} should be clearly visible 
                             </T3>
                             <T4 toggle={this.state.toggle}>
-                                {(parseInt(this.state.from.split('govtid')[1])==1||3)?'Aadhar Front Side':'Aadhar Back Side'}
+                                {sessionStorage.getItem('ID')} {(parseInt(this.state.from.split('govtid')[1])==(1||3)?'Front Side':'Back Side')}
                             </T4>
                             <T5 toggle={this.state.toggle}>
                                 Take a Selfie
@@ -184,11 +184,12 @@ export default class Camera extends Component{
                             <Cancel  className='btn btn-success' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
                             <TakeSelfie  className='btn' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}></TakeSelfie>
                             
-                            <Gallery>Gallery</Gallery> 
+                            <Gallery>Gallery</Gallery>
+                            <Tips>Tips</Tips> 
                             <Canvas id="canvas" ref={(ref)=>{this.canvas=ref}}></Canvas>
 
                         </Div>
-                        <Tips  className="btn" data-toggle="popover-click" data-content="Some content inside the popover" >Tips</Tips>
+                        
                     </div>
             );
         }
