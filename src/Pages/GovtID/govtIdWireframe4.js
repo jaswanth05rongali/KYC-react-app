@@ -38,7 +38,7 @@ class GovtIdWireframe4 extends React.Component{
             <div>
               <VerifyYourIdentity />
               <div className="frontFullIdBody">
-                  <YourGovtId />
+                  <YourGovtId current="/govtid4"/>
                   <div className="frontIdBodyNImage">
                     <img className="takenFrontIdImage" src={this.state.front} height="70" width="110" alt="ID Front" />
                     <div className="frontIdBody">
