@@ -1,22 +1,32 @@
 import React ,{Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import styled from 'styled-components';
-import  Measure  from 'react-measure';
-import Ratio from './Ratio';
-import Offset from './Offset';
-import {Div,TextStyles1,TextStyles2,TextStyles3,OverlayStyles,Video,Cancel,Canvas,TakeSelfie} from './styles';
+
+import {
+    Div,
+    Dashboard1,
+    Dashboard2,
+    TextStyles1,
+    TextStyles2,
+    TextStyles3,
+    TextStyles4,
+    TextStyles5,
+    OverlayStyles,
+    Video,
+    Cancel,
+    Canvas,
+    TakeSelfie,
+    Tips,
+    Gallery
+} from './styles';
 
 
 const Overlay = styled.div`${OverlayStyles};`
 const T1 = styled.div`${TextStyles1};`
 const T2 = styled.div`${TextStyles2};`
 const T3 = styled.div`${TextStyles3};`
-
-const CAPTURE_OPTIONS = {
-    audio: false,
-    video: { facingMode: "environment" },
-};
-
+const T4 = styled.div`${TextStyles4};`
+const T5 = styled.div`${TextStyles5};`
 
 export default class Camera extends Component{
     
@@ -55,16 +65,14 @@ export default class Camera extends Component{
             showCamera:true,
             from,
             to,
-            toggle,
-            container:{height:360,width:640},
-            aspectRatio:1.582,
+            toggle
         }
         sessionStorage.setItem('/'+this.state.to, JSON.stringify(false));
         this.startcamera=this.startcamera.bind(this);
         this.stopcamera=this.stopcamera.bind(this);
         this.takephoto=this.takephoto.bind(this);
         this.handletoggle=this.handletoggle.bind(this);
-        this.handleResize=this.handleResize.bind(this); 
+        
     }
     componentDidMount(){
         this.startcamera();
@@ -75,6 +83,11 @@ export default class Camera extends Component{
         })
     }
     startcamera(){
+
+        const CAPTURE_OPTIONS = {
+            audio: false,
+            video: {facingMode: `${this.state.toggle===true?'user':'environment'}`}
+        };
 
         navigator.mediaDevices.getUserMedia(CAPTURE_OPTIONS)
         .then((stream)=>{
@@ -90,24 +103,22 @@ export default class Camera extends Component{
     }
     takephoto(){
         
+        this.canvas.width = this.video.videoWidth;
+        this.canvas.height = this.video.videoHeight;
+
         let context = this.canvas.getContext('2d');
-        let offsets = this.Offset.useOffsets(
-            this.video.current && this.video.current.videoWidth,
-            this.video.current && this.video.current.videoHeight,
-            this.state.container.width,
-            this.state.container.height
-        );
-        console.log(offsets.x,offsets.y);
+       
+
         context.drawImage(
             this.video,
-            offsets.x,
-            offsets.y,
-            this.state.container.width,
-            this.state.container.height,
             0,
             0,
-            this.state.container.width,
-            this.state.container.height
+            this.video.videoWidth,
+            this.video.videoHeight,
+            0,
+            0,
+            this.video.videoWidth,
+            this.video.videoHeight,
         );
 
         let photo = this.canvas.toDataURL('image/webp');
@@ -136,33 +147,24 @@ export default class Camera extends Component{
 
         context.clearRect(0,0,this.canvas.width,this.canvas.height);
         this.video.srcObject.getTracks().map((track)=>{track.stop()});
+
         this.setState({showCamera:false});
         sessionStorage.setItem('/'+this.state.to, JSON.stringify(true));
         sessionStorage.setItem('/camera',JSON.stringify(false));
     }
-    handleResize(contentRect){
-        let ratio = this.state.aspectRatio
-        this.setState({
-            height: Math.round(contentRect.bounds.width / ratio),
-            width: contentRect.bounds.width
-          });
-    }
+    
     render(){
         if(this.state.showCamera===false){
             return <Redirect to={this.state.to}/>
         }
         else{
             return(
-
-                <Measure bounds onResize={this.handleResize}>
-                    {({measureRef})=>(
-                        <Div ref={measureRef} style={{ height: `${this.state.container.height}px` }}>
-                            
-                            <Offset ref={(ref)=>{this.Offset=ref}}/>
-                            <Ratio  ref={(ref)=>{this.ratio=ref}}/>
+                    <div>
+                        <Div>
+                            <Dashboard1/><Dashboard2/>
                             <Overlay toggle={this.state.toggle}></Overlay>
                             <T1 toggle={this.state.toggle}>
-                                Make sure your your face fits inside the <br/>
+                                Make sure your face fits inside the <br/>
                                 oval and is clearly visible
                             </T1>
                             <T2 toggle={this.state.toggle}>
@@ -171,15 +173,23 @@ export default class Camera extends Component{
                             <T3 toggle={this.state.toggle}>
                                 Your {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'Name and Photo':'Address'} should be clearly visible 
                             </T3>
+                            <T4 toggle={this.state.toggle}>
+                                {(parseInt(this.state.from.split('govtid')[1])==1||3)?'Aadhar Front Side':'Aadhar Back Side'}
+                            </T4>
+                            <T5 toggle={this.state.toggle}>
+                                Take a Selfie
+                            </T5>
 
                             <Video id="video" autoPlay ref={(ref)=>{this.video=ref}}></Video>
                             <Cancel  className='btn btn-success' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
-                            <TakeSelfie  className='btn btn-success' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}></TakeSelfie> 
-                            <Canvas width={this.state.container.width} height={this.state.container.height} id="canvas" ref={(ref)=>{this.canvas=ref}}></Canvas>
+                            <TakeSelfie  className='btn' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}></TakeSelfie>
                             
+                            <Gallery>Gallery</Gallery> 
+                            <Canvas id="canvas" ref={(ref)=>{this.canvas=ref}}></Canvas>
+
                         </Div>
-                    )}
-                </Measure>
+                        <Tips  className="btn" data-toggle="popover-click" data-content="Some content inside the popover" >Tips</Tips>
+                    </div>
             );
         }
     }
