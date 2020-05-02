@@ -11,7 +11,6 @@ class GovtIdWireframe1 extends React.Component{
     this.state = {
       id: "Aadhaar"
     };
-    sessionStorage.setItem('ID',this.state.id);
     sessionStorage.setItem('IDImage','./aadhaar-front.png');
     sessionStorage.setItem('camera_origin','govtid1');
     sessionStorage.setItem('currentPage','/govtid1');
@@ -21,7 +20,7 @@ class GovtIdWireframe1 extends React.Component{
 
   changeId = (ID) => {
     let returnPath;
-    switch(sessionStorage.getItem('ID')){
+    switch(ID){
       case "PAN": returnPath = './panFront.png';
         break;
       case "Driving License": returnPath = './driverLicense1.png';
@@ -36,8 +35,7 @@ class GovtIdWireframe1 extends React.Component{
     sessionStorage.setItem('IDImage',returnPath);
     this.setState({
       id: ID
-    })
-    sessionStorage.setItem('ID',this.state.id);
+    })    
   }    
   
   render(){
@@ -56,7 +54,8 @@ class GovtIdWireframe1 extends React.Component{
             </div>
             <div className="firstIdBodyNImage">
               <div className="firstIdBody">
-                <p className="firstAadhaar">Front of {sessionStorage.getItem('ID')}</p>
+                <p className="firstAadhaar">Front of {this.state.id}</p>
+                {sessionStorage.setItem('ID',this.state.id)}
                 <p>Your name and photo should be clearly visible</p>
               </div>
               <div className="text-center"><img className="firstIdImage" src={sessionStorage.getItem('IDImage')} height="200" alt="govt ID" /></div>
