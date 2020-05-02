@@ -27,6 +27,14 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
+    border-style: solid;
+    border-color: #F5F5F5;
+}
+
+.insideCardBody{
+    margin-top: 12px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .rowname {
@@ -35,8 +43,7 @@
 }
 .insidebut {
     text-align: center;
-    
-    
+    margin-top: 25px;    
 }
 .text-color
 {
@@ -53,7 +60,7 @@ font-weight: 600;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 2px;
+    margin: 0px 2px;
     cursor: pointer;
     border-radius: 16px;
     font-size: 15px;

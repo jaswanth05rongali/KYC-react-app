@@ -95,15 +95,14 @@ changegender = (gndr) =>{
         </div>
         <div className="cardText">
             <div style={{fontSize:'20px',marginBottom:'0px'}}><CardTitle className="text-dark text-left"><strong>Hi ! {this.state.Username} Help us Setup your account</strong></CardTitle></div>
-            <CardText className="text-dark text-left">We'll verify it your KYC documents</CardText>
+            <CardText className="text-dark text-left">We'll verify it with your KYC documents</CardText>
         </div>
     </div>
         </div>
                 <div className="row row-content justify-content-center">
                     <div className="col-12">
-                    
-                        <Card className="cardBody">
-                                <CardBody>
+                        <div className="cardBody">
+                                <div className="insideCardBody">
                                 <form onSubmit={this.handleSubmit}>
                                 <FormGroup row >
                                     <Col>
@@ -129,7 +128,6 @@ changegender = (gndr) =>{
                                             </div>
                                     </Col>
                                 </FormGroup>
-                                <br/>
                                 <FormGroup >
                                 <Col><div className="insidebut">
                                     <Button className="col-6" type="submit" color="success" onClick={this.handleClick}>
@@ -139,8 +137,8 @@ changegender = (gndr) =>{
                                 </Col>
                  </FormGroup>
                                 </form>
-                            </CardBody>
-                        </Card>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
