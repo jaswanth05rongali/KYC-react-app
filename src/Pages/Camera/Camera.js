@@ -188,11 +188,11 @@ export default class Camera extends Component{
                             <header style={{marginLeft:"10px",marginRight:"10px", paddingLeft:"10px",paddingRight:"10px",}}>Follow theses steps to use camera</header>
                             <div>
                                 <ul style={{fontSize:"16px",marginTop:"5px",marginLeft:"15px",marginRight:"15px",}}>
-                                    <li>Go and click the camera icon on right most part of the url bar</li>
-                                    <li>Select continue allowing http://localhost:3000 to access your camera</li>
-                                    <li>Click on Done button</li>
-                                    <li>Now on the Page click on Go Back to Camera button</li>
-                                    <li>Thank You for your Assistance</li>
+                                    <li>Go to <strong>Settings</strong> in your chrome browser.</li>
+                                    <li>In <strong>Advanced</strong> section, Select <strong>Site Settings.</strong></li>
+                                    <li>Then choose <strong>Camera</strong>.</li>
+                                    <li>Now on this page, In the <strong>Blocked</strong> section, you can see the web address. Click on it and allow <strong>Access your camera</strong> option.</li>
+                                    <li>Thank You for your Assistance.</li>
                                 </ul>
                             </div>
                         </div>
