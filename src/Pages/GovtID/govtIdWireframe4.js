@@ -14,7 +14,7 @@ class GovtIdWireframe4 extends React.Component{
     switch(sessionStorage.getItem('ID')){
       case "PAN": path = './panBack.png';
         break;
-      case "Driving License": path = './driverLicense2.png';
+      case "Driving Licence": path = './driverLicense2.png';
         break;
       case "Passport": path = './passportBack.png';
         break;

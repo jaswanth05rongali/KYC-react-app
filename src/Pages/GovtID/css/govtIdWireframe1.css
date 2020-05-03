@@ -14,7 +14,7 @@ html[data-theme="dark"]{
  .firstGovtId{
     background-color: var(--primary-color);
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
   }
   
