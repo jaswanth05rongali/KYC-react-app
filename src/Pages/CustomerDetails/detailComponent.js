@@ -53,7 +53,7 @@ changegender = (gndr) =>{
                 if((val>=65 && val<=90) ||(val>=97 && val<=122)){
 
                 }
-                else if(val==72){
+                else if(val==32){
                     
                 }
                 else ok=false;
