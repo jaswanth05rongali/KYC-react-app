@@ -81,7 +81,7 @@ export default class Camera extends Component{
     }
     componentDidMount(){
         this.startcamera();
-        if(this.state.showCamera){
+        if(!this.state.showCamera){
             setTimeout(() => {
                 this.photobutton.disabled=false;
                 this.stopbutton.disabled=false;
@@ -182,14 +182,13 @@ export default class Camera extends Component{
             if(this.state.permissionDenied===true){
                 return(
                     <div>
-                        <div>
-                            <h1>OOps !!</h1>
-                            <h4>We need to access the camera to complete your KYC process</h4>
-                            <header>Follow the steps to use camera</header>
+                        <div style={{borderStyle:"solid",borderColor:"#a4a4a4",marginTop:"10px",marginLeft:"10px",marginRight:"10px",marginBottom:"20px"}}>
+                            <h1 className="text-center" style={{marginTop:"15px",marginLeft:"10px", marginRight:"20px", color:"#FF000"}}>Oops !!</h1>
+                            <h5 style={{marginTop:"2    0px",marginLeft:"10px",marginRight:"10px", paddingLeft:"10px",paddingRight:"10px",}}>We need to access the camera to complete your KYC process</h5>
+                            <header style={{marginLeft:"10px",marginRight:"10px", paddingLeft:"10px",paddingRight:"10px",}}>Follow theses steps to use camera</header>
                             <div>
-                                
-                                <ul>
-                                    <li>Go to and click the camera icon on right most part of the url bar</li>
+                                <ul style={{fontSize:"16px",marginTop:"5px",marginLeft:"15px",marginRight:"15px",}}>
+                                    <li>Go and click the camera icon on right most part of the url bar</li>
                                     <li>Select continue allowing http://localhost:3000 to access your camera</li>
                                     <li>Click on Done button</li>
                                     <li>Now on the Page click on Go Back to Camera button</li>
@@ -197,7 +196,7 @@ export default class Camera extends Component{
                                 </ul>
                             </div>
                         </div>
-                        <button onClick={this.handleAssist}>Go Back to Camera</button>
+                        <div className="text-center"><button type="button" className="btn btn-success" onClick={this.handleAssist}>Go Back to Camera</button></div>
                     </div>
                 );  
             }
