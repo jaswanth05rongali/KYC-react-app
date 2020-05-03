@@ -36,7 +36,7 @@ class GovtIdWireframe3 extends React.Component{
                       <p className="frontAadhaar">Front of {sessionStorage.getItem('ID')}</p>
                       <p>Your name and photo should be clearly visible</p>
                     </div>
-                    <img className="frontIdImage" src={this.state.photo} height="200" width="300" alt="aadhaar" /> 
+                    <div className="text-center"><img className="frontIdImage" src={this.state.photo} height="auto" width="auto" alt="aadhaar" /></div> 
                   </div>
                   <RetakeLooksGood current='/verifyGovernmentIDFront' looksGoodPath='/takeGovernmentIDBack' />
                 </div>

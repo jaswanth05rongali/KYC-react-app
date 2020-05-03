@@ -16,6 +16,7 @@ html[data-theme="dark"]{
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-top: 6px;
   }
   
   .firstIdBody{
@@ -46,7 +47,8 @@ html[data-theme="dark"]{
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }

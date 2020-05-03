@@ -39,7 +39,7 @@ class GovtIdWireframe6 extends React.Component{
                       <p className="backAadhaar">Back of {sessionStorage.getItem('ID')}</p>
                       <p>Your address should be clearly visible</p>
                     </div>
-                    <img className="backIdImage" src={this.state.back} height="200" width="300" alt="aadhaar" /> 
+                    <img className="backIdImage" src={this.state.back} height="auto" width="auto" alt="aadhaar" /> 
                   </div>
                   <RetakeLooksGood current='/verifyGovernmentIDBack' looksGoodPath='/verifyGovernmentIDComplete'/>
               </div>
