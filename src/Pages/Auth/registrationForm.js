@@ -1,7 +1,9 @@
 
 import React, {Component} from 'react';
+import {isMobile} from 'react-device-detect';
 import axios from 'axios';
-import {BrowserRouter as Router, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route} from 'react-router-dom';
+import history from '../../history';
 import './registrationForm.css';
 
 const validateForm = (errors) => {
@@ -42,6 +44,7 @@ class RegistrationForm extends Component {
         theme : localStorage.getItem("theme")
         };
         sessionStorage.setItem('currentPage','/');
+        sessionStorage.setItem('/error',JSON.stringify(false));
         sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
         sessionStorage.setItem('/success',JSON.stringify(false));
        }
@@ -88,11 +91,12 @@ class RegistrationForm extends Component {
             this.setState({validUser:true});
           }
         })
-
-      /*  if(user.Name=="nisnt2411" && user.Pass=="12345678"){
-          this.setState({validUser:true});
+        
+        if(!isMobile){
+          sessionStorage.setItem('/error',JSON.stringify(true));
+          history.push('/error');
         }
-        */
+        
         if(this.state.ok){
           this.setState({formValid: validateForm(this.state.errors)});
           this.setState({errorCount: countErrors(this.state.errors)});
