@@ -203,7 +203,7 @@ export default class Camera extends Component{
             return 'Address'
         }
     }
-    handle3(param){
+    handle3(param){ 
         switch (param) {
         case 'takeGovernmentIDFront':
             return 'front side';
