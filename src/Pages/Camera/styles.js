@@ -85,10 +85,10 @@ export const TextStyles1 = css`
     position:fixed;
     text-align:center;
     color:white;
-    opacity:40%;
+    opacity:80%;
     font-size:16px;
     left:50%;
-    bottom:40%;
+    bottom:20%;
     transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === false ? 'none':''}};
@@ -100,7 +100,14 @@ export const TextStyles2 = css`
     width:100%;
     font-size:16px;
     left:50%;
-    bottom:30%;
+    bottom:${(props)=>{
+        switch (props.id) {
+            case 'Voter ID':
+                return '28%'
+            default:
+                return '40%'
+        }
+    }};
     transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === true ? 'none':''}};
@@ -112,7 +119,14 @@ export const TextStyles3 = css`
     width:100%;
     font-size:16px;
     left:50%;
-    top:33%;
+    top:${(props)=>{
+        switch (props.id) {
+            case 'Voter ID':
+                return '21%'
+            default:
+                return '23%'
+        }
+    }};
     transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === true ? 'none':''}};
@@ -137,14 +151,60 @@ export const TextStyles5=css`
     transform: translate(-50%,-50%);
     display:${(props)=>{return props.toggle === false ? 'none':''}};
 `
-export const OverlayStyles = css`
+export const OverlayStyles1 = css`
+    display:${(props)=>{return props.toggle===false?'none':''}};
     position:fixed;
-    height:${(props)=>{return props.toggle === true ? '44%' : '30%'}};
-    width:${(props)=>{return props.toggle === true ? '70%' : '90%'}};
+    height:50%;
+    width:70%;
     left:50%;
-    top:50%;
+    top:40%;
     border:1px solid white;
-    border-radius:${(props)=>{return props.toggle===true ? '80%' : '0%'}};
+    border-radius:80%;
+    transform: translate(-50%,-50%);
+    z-index:2
+`
+export const OverlayStyles2 = css`
+    display:${(props)=>{return props.toggle===true?'none':''}};
+    position:fixed;
+    height:${(props)=>{
+        switch (props.id) {
+            case 'Aadhaar':
+                return '30%'
+            case 'PAN':
+                return '30%' 
+            case 'Driving License':
+                return '30%'
+            case 'Passport':
+                return '30%'   
+            default:
+                return '45%';
+        }
+    }};
+    width:${(props)=>{
+        switch (props.id) {
+            case 'Aadhaar':
+                return '95%'
+            case 'PAN':
+                return '95%'
+            case 'Driving License':
+                return '95%'
+            case 'Passport':
+                return '90%'
+            default:
+                return '60%';
+        }
+    }};
+    left:50%;
+    top:${(props)=>{
+        switch (props.id) {
+            case 'Voter ID':
+                return '45%'
+            default:
+                return '40%'
+        }
+    }};
+    border:1px solid white;
+    border-radius:0%;
     transform: translate(-50%,-50%);
     z-index:2
 `

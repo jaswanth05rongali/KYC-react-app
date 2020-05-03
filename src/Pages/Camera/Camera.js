@@ -11,17 +11,18 @@ import {
     TextStyles3,
     TextStyles4,
     TextStyles5,
-    OverlayStyles,
+    OverlayStyles1,
+    OverlayStyles2,
     Video,
     Cancel,
     Canvas,
     TakeSelfie,
-    Tips,
     Gallery
 } from './styles';
 
 
-const Overlay = styled.div`${OverlayStyles};`
+const Overlay1 = styled.div`${OverlayStyles1};`
+const Overlay2 = styled.div`${OverlayStyles2};`
 const T1 = styled.div`${TextStyles1};`
 const T2 = styled.div`${TextStyles2};`
 const T3 = styled.div`${TextStyles3};`
@@ -80,7 +81,7 @@ export default class Camera extends Component{
     }
     componentDidMount(){
         this.startcamera();
-        if(!this.state.showCamera){
+        if(this.state.showCamera){
             setTimeout(() => {
                 this.photobutton.disabled=false;
                 this.stopbutton.disabled=false;
@@ -210,15 +211,16 @@ export default class Camera extends Component{
                         <Div>
 
                             <Dashboard1/><Dashboard2/>
-                            <Overlay toggle={this.state.toggle}></Overlay>
+                            <Overlay1 toggle={this.state.toggle}></Overlay1>
+                            <Overlay2 id={sessionStorage.getItem('ID')} toggle={this.state.toggle}></Overlay2>
                             <T1 toggle={this.state.toggle}>
                                 Make sure your face fits inside the <br/>
                                 oval and is clearly visible
                             </T1>
-                            <T2 toggle={this.state.toggle}>
+                            <T2 id={sessionStorage.getItem('ID')} toggle={this.state.toggle}>
                                 Fit {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'front':'back'} side of {sessionStorage.getItem('ID')} card inside the box
                             </T2>
-                            <T3 toggle={this.state.toggle}>
+                            <T3 id={sessionStorage.getItem('ID')} toggle={this.state.toggle}>
                                 Your {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'Name and Photo':'Address'} should be clearly visible 
                             </T3>
                             <T4 toggle={this.state.toggle}>
