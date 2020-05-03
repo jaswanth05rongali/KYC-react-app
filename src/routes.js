@@ -1,4 +1,5 @@
 import React from 'react';
+import {isMobile} from 'react-device-detect';
 import PrivateRoute from './components/privateRoute';
 import {Router, Switch,Redirect, Route} from 'react-router-dom';
 import GovtIdWireframe1 from './Pages/GovtID/govtIdWireframe1';
@@ -11,6 +12,7 @@ import SelfieScreen from './Pages/SelfieScreens/SelfieScreen';
 import SelfieScreenBack from './Pages/SelfieScreens/SelfieScreenBack';
 import RegistrationForm from './Pages/Auth/registrationForm';
 import Success from './Pages/success';
+import ErrorPage from './components/errorPage';
 import Camera from './Pages/Camera/Camera'
 import history from './history';
 
@@ -20,6 +22,7 @@ export default class Routes extends React.Component{
             <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={RegistrationForm}/>
+                    {/* {(!isMobile) ? <ErrorPage />: } */}
                     <PrivateRoute  path="/customerdetails1" component={DetailPage}/>                   
                     <PrivateRoute  path="/selfie1" component={SelfieScreen} />
                     <PrivateRoute  path="/selfie3" component={SelfieScreenBack} />
