@@ -1,12 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './routes';
+import KYCNavBar from './components/navBar';
 import './App.css';
 
 class App extends React.Component{
     render(){
         return (
-            <Routes />
+            <div>
+                <KYCNavBar />
+                <Routes />
+            </div>
         );
     }
 }

@@ -143,14 +143,14 @@ render(){
     const {errors,formValid,ok,validUser,saveUsers} =this.state;
   return(
         <div>
-          <label className="switch">
+          {/* <label className="switch">
           <input type="checkbox"
                 // checked={this.state.checked}
                 defaultChecked={this.state.checked}
                 onChange={() => this.toggleThemeChange()}
               />
             <span className="slider round" />
-          </label>
+          </label> */}
         <div className="col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <div className="text-center"><img className="logoImage" src="KYClogo.png" height="120px" width="200px" alt="Logo"/></div>
         <nav className="navbar navbar-dark">
