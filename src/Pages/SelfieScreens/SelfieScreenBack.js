@@ -17,6 +17,12 @@ class SelfieScreenBack extends Component {
         sessionStorage.setItem('/govtid1', JSON.stringify(false));
     }
 
+    componentDidMount() {
+        document
+        .getElementsByTagName("HTML")[0]
+        .setAttribute("data-theme", localStorage.getItem("theme"));
+    }
+
     render(){
     
     return(

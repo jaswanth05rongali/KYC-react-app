@@ -76,19 +76,22 @@ changegender = (gndr) =>{
         }
 
         componentDidMount() {
-                this.userData = JSON.parse(sessionStorage.getItem('user'));
-        
-                if (sessionStorage.getItem('user')) {
-                    this.setState({
-                        username: this.userData.username,
-                        dateofbirth: this.userData.dateofbirth
-                    })
-                } else {
-                    this.setState({
-                        username:'',
-                        Password:''
-                    })
-                }
+            document
+            .getElementsByTagName("HTML")[0]
+            .setAttribute("data-theme", localStorage.getItem("theme"));
+            this.userData = JSON.parse(sessionStorage.getItem('user'));
+    
+            if (sessionStorage.getItem('user')) {
+                this.setState({
+                    username: this.userData.username,
+                    dateofbirth: this.userData.dateofbirth
+                })
+            } else {
+                this.setState({
+                    username:'',
+                    Password:''
+                })
+            }
         }
                 
  render(){

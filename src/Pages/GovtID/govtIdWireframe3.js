@@ -16,7 +16,14 @@ class GovtIdWireframe3 extends React.Component{
       this.state={
           photo:image,
       }
-  }
+    }
+
+    componentDidMount() {
+      document
+      .getElementsByTagName("HTML")[0]
+      .setAttribute("data-theme", localStorage.getItem("theme"));
+    }
+
     render(){
         return (
             <div>

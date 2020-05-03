@@ -20,6 +20,13 @@ class GovtIdWireframe6 extends React.Component{
           back:backid
       }
     }
+
+    componentDidMount() {
+      document
+      .getElementsByTagName("HTML")[0]
+      .setAttribute("data-theme", localStorage.getItem("theme"));
+    }
+
     render(){
         return (
             <div>
