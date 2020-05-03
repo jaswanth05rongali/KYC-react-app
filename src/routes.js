@@ -1,7 +1,6 @@
 import React from 'react';
-import {isMobile} from 'react-device-detect';
 import PrivateRoute from './components/privateRoute';
-import {Router, Switch,Redirect, Route} from 'react-router-dom';
+import {Router, Switch, Route} from 'react-router-dom';
 import GovtIdWireframe1 from './Pages/GovtID/govtIdWireframe1';
 import GovtIdWireframe3 from './Pages/GovtID/govtIdWireframe3';
 import GovtIdWireframe4 from './Pages/GovtID/govtIdWireframe4';
@@ -12,18 +11,18 @@ import SelfieScreen from './Pages/SelfieScreens/SelfieScreen';
 import SelfieScreenBack from './Pages/SelfieScreens/SelfieScreenBack';
 import RegistrationForm from './Pages/Auth/registrationForm';
 import Success from './Pages/success';
-import ErrorPage from './components/errorPage';
 import Camera from './Pages/Camera/Camera'
 import history from './history';
+import ErrorPage from './components/errorPage';
 
 export default class Routes extends React.Component{
     render(){
         return (
             <Router history={history}>
                 <Switch>
+                    <PrivateRoute path="/error" component={ErrorPage} />
                     <Route exact path="/" component={RegistrationForm}/>
-                    {/* {(!isMobile) ? <ErrorPage />: } */}
-                    <PrivateRoute  path="/customerdetails1" component={DetailPage}/>                   
+                    <PrivateRoute  path="/customerdetails1" component={DetailPage}/>                
                     <PrivateRoute  path="/selfie1" component={SelfieScreen} />
                     <PrivateRoute  path="/selfie3" component={SelfieScreenBack} />
                     <PrivateRoute  path="/govtid1" component={GovtIdWireframe1} />
