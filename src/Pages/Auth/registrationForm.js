@@ -154,7 +154,7 @@ render(){
         <div className="col-12 col-lg-3 login-card mt-2 hv-center mx-auto registrationCard">
         <div className="text-center"><img className="logoImage" src="KYClogo.png" height="120px" width="200px" alt="Logo"/></div>
         <nav className="navbar navbar-dark">
-        <div className="row col-12 d-flex justify-content-center">
+        <div className="row col-12 d-flex justify-content-center" style={{paddingLeft:"30px"}}>
         <span className="h5 text-grey">Hi! Welcome to ZestMoney</span>
         <span className="h6 text-muted">One step KYC solution</span>
         </div>
