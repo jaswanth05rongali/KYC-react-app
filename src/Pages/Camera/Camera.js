@@ -77,6 +77,9 @@ export default class Camera extends Component{
         this.takephoto=this.takephoto.bind(this);
         this.handletoggle=this.handletoggle.bind(this);
         this.handleAssist=this.handleAssist.bind(this);
+        this.handle1=this.handle1.bind(this);
+        this.handle2=this.handle2.bind(this);
+        this.handle3=this.handle3.bind(this);
 
     }
     componentDidMount(){
@@ -176,6 +179,42 @@ export default class Camera extends Component{
     handleAssist(){
         this.setState({permissionDenied:false});
     }
+    handle1(param){
+        switch (param) {
+        case 'takeGovernmentIDFront':
+            return 'front';
+        case 'verifyGovernmentIDFront':
+                return 'front';    
+        case 'takeGovernmentIDBack':
+            return 'back'
+        case 'verifyGovernmentIDBack':
+            return 'front'
+        }
+    }
+    handle2(param){
+        switch (param) {
+        case 'takeGovernmentIDFront':
+            return 'Name and Photo';
+        case 'verifyGovernmentIDFront':
+                return 'Name and Photo';    
+        case 'takeGovernmentIDBack':
+            return 'Address'
+        case 'verifyGovernmentIDBack':
+            return 'Address'
+        }
+    }
+    handle3(param){
+        switch (param) {
+        case 'takeGovernmentIDFront':
+            return 'front side';
+        case 'verifyGovernmentIDFront':
+                return 'front side';    
+        case 'takeGovernmentIDBack':
+            return 'back side'
+        case 'verifyGovernmentIDBack':
+            return 'back side'
+        }
+    }
     
     render(){
         if(this.state.showCamera===false){
@@ -217,13 +256,13 @@ export default class Camera extends Component{
                                 oval and is clearly visible
                             </T1>
                             <T2 id={sessionStorage.getItem('ID')} toggle={this.state.toggle}>
-                                Fit {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'front':'back'} side of {sessionStorage.getItem('ID')} card inside the box
+                                Fit {this.handle1(this.state.from)} side of {sessionStorage.getItem('ID')} card inside the box
                             </T2>
                             <T3 id={sessionStorage.getItem('ID')} toggle={this.state.toggle}>
-                                Your {(parseInt(this.state.from.split('govtid')[1])===(1||3))?'Name and Photo':'Address'} should be clearly visible 
+                                Your {this.handle2(this.state.from)} should be clearly visible 
                             </T3>
                             <T4 toggle={this.state.toggle}>
-                                {sessionStorage.getItem('ID')} {(parseInt(this.state.from.split('govtid')[1])==(1||3)?'Front Side':'Back Side')}
+                                {sessionStorage.getItem('ID')} {this.handle3(this.state.from)} 
                             </T4>
                             <T5 toggle={this.state.toggle}>
                                 Take a Selfie
