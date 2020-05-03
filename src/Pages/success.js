@@ -7,6 +7,13 @@ export default class Success extends React.Component{
         super(props);
         sessionStorage.setItem('currentPage','/success');
     }
+
+    componentDidMount() {
+        document
+        .getElementsByTagName("HTML")[0]
+        .setAttribute("data-theme", localStorage.getItem("theme"));
+    }
+
     render(){
         return (
             <div className="align-middle text-center" style={{marginTop: '10%'}}>

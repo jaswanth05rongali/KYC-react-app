@@ -16,6 +16,13 @@ class GovtIdWireframe7 extends React.Component{
             idback:sessionStorage.getItem('idback')
         }
     }
+
+    componentDidMount() {
+        document
+        .getElementsByTagName("HTML")[0]
+        .setAttribute("data-theme", localStorage.getItem("theme"));
+    }
+
     render(){
         return (
             <div>

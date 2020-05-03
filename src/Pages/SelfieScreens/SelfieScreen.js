@@ -11,6 +11,11 @@ class SelfieScreen extends Component {
         sessionStorage.setItem('currentPage','/selfie1');
         sessionStorage.setItem('/camera',JSON.stringify(false));
     }
+    componentDidMount() {
+        document
+        .getElementsByTagName("HTML")[0]
+        .setAttribute("data-theme", localStorage.getItem("theme"));
+    }
     render(){           
             return(
                 <div className="">

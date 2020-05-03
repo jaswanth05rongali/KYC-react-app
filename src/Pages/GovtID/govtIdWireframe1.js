@@ -38,7 +38,13 @@ class GovtIdWireframe1 extends React.Component{
       id: ID,
       aadhaarClass: "idButton btn btn-outline-primary"
     })    
-  }    
+  }
+  
+  componentDidMount() {
+    document
+    .getElementsByTagName("HTML")[0]
+    .setAttribute("data-theme", localStorage.getItem("theme"));
+  }
   
   render(){
     return (
