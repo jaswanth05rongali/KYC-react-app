@@ -230,10 +230,10 @@ export default class Camera extends Component{
                             </T5>
 
                             <Video id="video" autoPlay ref={(ref)=>{this.video=ref}}></Video>
-                            <Cancel  className='btn btn-danger' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
+                            <Cancel  className='btn ' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
                             <TakeSelfie  className='btn' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}></TakeSelfie>
                             
-                            <Gallery className='btn btn-secondary' ref={(ref)=>{this.gallery=ref}}>Gallery</Gallery> 
+                            <Gallery id="gallery"className='btn' ref={(ref)=>{this.gallery=ref}}>Gallery</Gallery> 
                             <Canvas id="canvas" ref={(ref)=>{this.canvas=ref}}></Canvas>
                             
                             <div className="dropup">
