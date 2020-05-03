@@ -10,8 +10,6 @@ class DetailPage extends Component {
         super(props);
         this.state={
             validuser:false,
-            validDOB:false,
-            validgender:false,
             username:'',
             dateofbirth:'',
             gender:''
@@ -29,34 +27,40 @@ changegender = (gndr) =>{
 }
          
         handleChange(event){
-            this.setState({
-                [event.target.name]:event.target.value}
-                );
             const { name, value } = event.target;
-            let validDOB=this.state.validDOB;
-            let validuser=this.state.validuser;
-            switch(name){
-                case 'username':
-                   this.setState({validuser:true});
-                case 'dateofbirth':
-                    this.setState({validDOB:true});
-        }
+            this.setState({
+                    [event.target.name]:event.target.value
+                }
+                );
+
     }
 
         handleSubmit = (event) => {
             event.preventDefault();
-            let validDOB=this.state.validDOB;
-            let validuser=this.state.validuser;
-            let validgender=this.state.validgender;
             sessionStorage.setItem('/selfie1',JSON.stringify(true));
             sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
-               if(validuser && validgender && validDOB){
-                   this.setState({ok:true});
-                  return history.push('/selfie1');
+            let username=this.state.username;
+            let dateofbirth=this.state.dateofbirth;
+            let i;
+            let ok=true;
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            let yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+            for(i=0;i<username.length;i++){
+                let val=username.charCodeAt(i);
+                if((val>=65 && val<=90) ||(val>=97 && val<=122)){
+                    ok=true;
                 }
-                else{
-                    return history.push('/customerdetails1');
-                }
+                else if(val==72) ok=true;
+                else ok=false;
+            }
+            if(!ok) alert('Name cannot contain numbers or special characters !');
+            else if(dateofbirth>=today) alert('invalid date of birth !');
+            else history.push('/selfie1');
+            
+
         }
         
         handleClick(){
@@ -64,7 +68,9 @@ changegender = (gndr) =>{
         }
 
         componentWillUpdate(nextProps, nextState) {
+            
                 sessionStorage.setItem('user', JSON.stringify(nextState));
+            
         }
 
         componentDidMount() {
@@ -72,12 +78,12 @@ changegender = (gndr) =>{
         
                 if (sessionStorage.getItem('user')) {
                     this.setState({
-                        Username: this.userData.Username,
-                        Password: this.userData.Password,
+                        username: this.userData.username,
+                        dateofbirth: this.userData.dateofbirth
                     })
                 } else {
                     this.setState({
-                        Username:'',
+                        username:'',
                         Password:''
                     })
                 }
@@ -86,7 +92,7 @@ changegender = (gndr) =>{
  render(){
         return (
         
-        <div className="detailsEntireBlock">                
+        <div className="detailsEntireBlock">         
         <div className="detailsCard">
         <div className="cardHeader">
         <div className="row " >
@@ -107,14 +113,14 @@ changegender = (gndr) =>{
                                 <FormGroup row >
                                     <Col>
                                     <CardText className="text-color">Your full name</CardText>
-                                    <Input type="text" name="username" placeholder="eg: Raj Kumar Babu" required onChange={this.handleChange}/>
+                                    <Input type="text" name="username" value={this.state.username} placeholder="eg: Raj Kumar Babu" onKeyPress={this.handleClick} required onChange={this.handleChange}/>
                                     <div style={{marginTop:'4px'}}><CardText className="text-muted text-left">Ensure it matches name on your PAN</CardText></div>
                                     </Col>
                                 </FormGroup>
                                 <FormGroup row >
                                     <Col>
                                     <CardText className="text-color">Your date of birth</CardText>
-                                    <Input type="date" name="dateofbirth" placeholder="DD/MM/YYYY" required onChange={this.handleChange}/>
+                                    <Input type="date" name="dateofbirth" value={this.state.dateofbirth} placeholder="DD/MM/YYYY" required onChange={this.handleChange}/>
                                     
                                     </Col>
                                 </FormGroup>
