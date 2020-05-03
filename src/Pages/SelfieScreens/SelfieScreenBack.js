@@ -9,12 +9,12 @@ class SelfieScreenBack extends Component {
     constructor(props){
         super(props);
         let image = sessionStorage.getItem('selfie');
-        sessionStorage.setItem('camera_origin','selfie3');
+        sessionStorage.setItem('camera_origin','verifyselfie');
         this.state={
             photo:image,
         }
-        sessionStorage.setItem('currentPage','/selfie3');
-        sessionStorage.setItem('/govtid1', JSON.stringify(false));
+        sessionStorage.setItem('currentPage','/verifyselfie');
+        sessionStorage.setItem('/takeGovernmentIDFront', JSON.stringify(false));
     }
 
     componentDidMount() {
@@ -46,7 +46,7 @@ class SelfieScreenBack extends Component {
         <div className="text-center"><img className='responsive' src={this.state.photo} alt="Card image" height="200" width="300" /></div>
 
         </div>
-        <RetakeLooksGood current='/selfie3' looksGoodPath='/govtid1' />
+        <RetakeLooksGood current='/verifyselfie' looksGoodPath='/takeGovernmentIDFront' />
         </div></div>
 
     )

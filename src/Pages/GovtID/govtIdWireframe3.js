@@ -10,9 +10,9 @@ class GovtIdWireframe3 extends React.Component{
     constructor(props){
       super(props);
       let image = sessionStorage.getItem('idfront');
-      sessionStorage.setItem('camera_origin','govtid3');
-      sessionStorage.setItem('currentPage','/govtid3');
-      sessionStorage.setItem('/govtid4',JSON.stringify(false));
+      sessionStorage.setItem('camera_origin','verifyGovernmentIDFront');
+      sessionStorage.setItem('currentPage','/verifyGovernmentIDFront');
+      sessionStorage.setItem('/takeGovernmentIDBack',JSON.stringify(false));
       this.state={
           photo:image,
       }
@@ -38,7 +38,7 @@ class GovtIdWireframe3 extends React.Component{
                     </div>
                     <img className="frontIdImage" src={this.state.photo} height="200" width="300" alt="aadhaar" /> 
                   </div>
-                  <RetakeLooksGood current='/govtid3' looksGoodPath='/govtid4' />
+                  <RetakeLooksGood current='/verifyGovernmentIDFront' looksGoodPath='/takeGovernmentIDBack' />
                 </div>
               </div>
               <SaveAndContinue active={false}/>

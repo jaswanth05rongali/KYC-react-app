@@ -11,10 +11,10 @@ class GovtIdWireframe6 extends React.Component{
       super(props);
       let backid = sessionStorage.getItem('idback');
       let frontid = sessionStorage.getItem('idfront');
-      sessionStorage.setItem('camera_origin','govtid6');
-      sessionStorage.setItem('editIconPath','/govtid3');
-      sessionStorage.setItem('currentPage','/govtid6');
-      sessionStorage.setItem('/govtid7',JSON.stringify(false));
+      sessionStorage.setItem('camera_origin','verifyGovernmentIDBack');
+      sessionStorage.setItem('editIconPath','/verifyGovernmentIDFront');
+      sessionStorage.setItem('currentPage','/verifyGovernmentIDBack');
+      sessionStorage.setItem('/verifyGovernmentIDComplete',JSON.stringify(false));
       this.state={
           front:frontid,
           back:backid
@@ -32,7 +32,7 @@ class GovtIdWireframe6 extends React.Component{
             <div>
               <VerifyYourIdentity />
               <div className="backFullIdBody">
-                  <YourGovtId current="/govtid6"/>
+                  <YourGovtId current="/verifyGovernmentIDBack"/>
                   <img className="takenFrontIdImage" src={this.state.front} height="70" width="110" alt="ID Front" />
                   <div className="backIdBodyNImage">
                     <div className="backIdBody">
@@ -41,7 +41,7 @@ class GovtIdWireframe6 extends React.Component{
                     </div>
                     <img className="backIdImage" src={this.state.back} height="200" width="300" alt="aadhaar" /> 
                   </div>
-                  <RetakeLooksGood current='/govtid6' looksGoodPath='/govtid7'/>
+                  <RetakeLooksGood current='/verifyGovernmentIDBack' looksGoodPath='/verifyGovernmentIDComplete'/>
               </div>
               <SaveAndContinue active={false}/>
             </div>

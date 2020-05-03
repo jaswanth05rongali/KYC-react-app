@@ -24,10 +24,10 @@ class GovtIdWireframe4 extends React.Component{
         break;
     };
     sessionStorage.setItem('imagePath',path);
-    sessionStorage.setItem('camera_origin','govtid4');
-    sessionStorage.setItem('editIconPath','/govtid3');
-    sessionStorage.setItem('currentPage','/govtid4');
-    sessionStorage.setItem('/govtid6',JSON.stringify(false));
+    sessionStorage.setItem('camera_origin','takeGovernmentIDBack');
+    sessionStorage.setItem('editIconPath','/verifyGovernmentIDFront');
+    sessionStorage.setItem('currentPage','/takeGovernmentIDBack');
+    sessionStorage.setItem('/verifyGovernmentIDBack',JSON.stringify(false));
     let frontid=sessionStorage.getItem('idfront')
     this.state={
       front:frontid,
@@ -45,7 +45,7 @@ class GovtIdWireframe4 extends React.Component{
       <div>
         <VerifyYourIdentity />
         <div className="frontFullIdBody">
-            <YourGovtId current="/govtid4"/>
+            <YourGovtId current="/takeGovernmentIDBack"/>
             <div className="frontIdBodyNImage">
               <img className="takenFrontIdImage" src={this.state.front} height="70" width="110" alt="ID Front" />
               <div className="frontIdBody">
@@ -54,7 +54,7 @@ class GovtIdWireframe4 extends React.Component{
               </div>
               <div className="text-center"><img className="originalId" src={sessionStorage.getItem('imagePath')} alt="govt ID" height="200px"/></div> 
             </div>
-            <ClickPhoto current="/govtid4" next="/govtid6" clickPhotoPath={'/govtid6'}/>
+            <ClickPhoto current="/takeGovernmentIDBack" next="/verifyGovernmentIDBack" clickPhotoPath={'/verifyGovernmentIDBack'}/>
         </div>
         <SaveAndContinue active={false}/>
       </div>

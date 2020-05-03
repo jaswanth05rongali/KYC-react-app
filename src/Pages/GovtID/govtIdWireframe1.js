@@ -13,8 +13,8 @@ class GovtIdWireframe1 extends React.Component{
       aadhaarClass: "idButton active btn btn-outline-primary"
     };
     sessionStorage.setItem('IDImage','./aadhaar-front.png');
-    sessionStorage.setItem('camera_origin','govtid1');
-    sessionStorage.setItem('currentPage','/govtid1');
+    sessionStorage.setItem('camera_origin','takeGovernmentIDFront');
+    sessionStorage.setItem('currentPage','/takeGovernmentIDFront');
     sessionStorage.setItem('/camera',JSON.stringify(false));
     this.changeId=this.changeId.bind(this);
   }
@@ -68,7 +68,7 @@ class GovtIdWireframe1 extends React.Component{
               </div>
               <div className="text-center"><img className="firstIdImage" src={sessionStorage.getItem('IDImage')} height="200" alt="govt ID" /></div>
             </div>
-            <ClickPhoto current="/govtid1" next="/govtid3" clickPhotoPath={'/govtid3'}/>
+            <ClickPhoto current="/takeGovernmentIDFront" next="/verifyGovernmentIDFront" clickPhotoPath={'/verifyGovernmentIDFront'}/>
           </div>
         </div>
         <SaveAndContinue active={false}/>

@@ -37,27 +37,27 @@ export default class Camera extends Component{
         sessionStorage.setItem('currentPage','/camera');
 
         let from = sessionStorage.getItem('camera_origin');
-        let toggle = ((from==='selfie1')||(from==='selfie3'))?true:false;
+        let toggle = ((from==='takeselfie')||(from==='verifyselfie'))?true:false;
         let to='';
 
          switch (from) {
-            case 'selfie1':
-                to='selfie3';
+            case 'takeselfie':
+                to='verifyselfie';
                 break;
-            case 'selfie3':
-                to='selfie3';
+            case 'verifyselfie':
+                to='verifyselfie';
                 break;
-            case 'govtid1':
-                to='govtid3';
+            case 'takeGovernmentIDFront':
+                to='verifyGovernmentIDFront';
                 break;
-            case 'govtid3':
-                to='govtid3';
+            case 'verifyGovernmentIDFront':
+                to='verifyGovernmentIDFront';
                 break;
-            case 'govtid4':
-                to='govtid6';
+            case 'takeGovernmentIDBack':
+                to='verifyGovernmentIDBack';
                 break;
-            case 'govtid6':
-                to='govtid6';
+            case 'verifyGovernmentIDBack':
+                to='verifyGovernmentIDBack';
                 break;
             default:
                 to='';
@@ -145,22 +145,22 @@ export default class Camera extends Component{
         
         
         switch (this.state.from) {
-            case ('selfie1'):
+            case ('takeselfie'):
                 sessionStorage.setItem('selfie',photo);
                 break;
-            case ('selfie3'):
+            case ('verifyselfie'):
                 sessionStorage.setItem('selfie',photo);
                 break;
-            case('govtid1'):
+            case('takeGovernmentIDFront'):
                 sessionStorage.setItem('idfront',photo);
                 break;
-            case('govtid3'):
+            case('verifyGovernmentIDFront'):
                 sessionStorage.setItem('idfront',photo);
                 break;    
-            case('govtid4'):
+            case('takeGovernmentIDBack'):
                 sessionStorage.setItem('idback',photo);
                 break;
-            case('govtid6'):
+            case('verifyGovernmentIDBack'):
                 sessionStorage.setItem('idback',photo);
                 break;    
         }

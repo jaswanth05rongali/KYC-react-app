@@ -45,7 +45,7 @@ class RegistrationForm extends Component {
         };
         sessionStorage.setItem('currentPage','/');
         sessionStorage.setItem('/error',JSON.stringify(false));
-        sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
+        sessionStorage.setItem('/customerdetails',JSON.stringify(false));
         sessionStorage.setItem('/success',JSON.stringify(false));
        }
 
@@ -140,7 +140,7 @@ class RegistrationForm extends Component {
     
 render(){
     const {errors,formValid,ok,validUser,saveUsers} =this.state;
-    formValid && ok && validUser ? sessionStorage.setItem('/customerdetails1',JSON.stringify(true)): sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
+    formValid && ok && validUser ? sessionStorage.setItem('/customerdetails',JSON.stringify(true)): sessionStorage.setItem('/customerdetails',JSON.stringify(false));
   return(
         <div>
           {/* <label className="switch">
@@ -188,7 +188,7 @@ render(){
                     type="submit" 
                     className="btn btn-success btn-block" value="log in" onClick={this.handleClick}>Get OTP
                 </button>
-                {formValid && ok && validUser ? <Redirect to="/customerdetails1"/> : 
+                {formValid && ok && validUser ? <Redirect to="/customerdetails"/> : 
                 !validUser && formValid && ok ?
                 <div className="alert alert-warning alert-dismissible">
                 <a href="/" className="close" data-dismiss="alert" aria-label="close">&times;</a>

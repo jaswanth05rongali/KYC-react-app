@@ -22,14 +22,14 @@ export default class Routes extends React.Component{
                 <Switch>
                     <PrivateRoute path="/error" component={ErrorPage} />
                     <Route exact path="/" component={RegistrationForm}/>
-                    <PrivateRoute  path="/customerdetails1" component={DetailPage}/>                
-                    <PrivateRoute  path="/selfie1" component={SelfieScreen} />
-                    <PrivateRoute  path="/selfie3" component={SelfieScreenBack} />
-                    <PrivateRoute  path="/govtid1" component={GovtIdWireframe1} />
-                    <PrivateRoute  path="/govtid3" component={GovtIdWireframe3} />
-                    <PrivateRoute  path="/govtid4" component={GovtIdWireframe4} />
-                    <PrivateRoute  path="/govtid6" component={GovtIdWireframe6} />
-                    <PrivateRoute  path="/govtid7" component={GovtIdWireframe7} />
+                    <PrivateRoute  path="/customerdetails" component={DetailPage}/>                
+                    <PrivateRoute  path="/takeselfie" component={SelfieScreen} />
+                    <PrivateRoute  path="/verifyselfie" component={SelfieScreenBack} />
+                    <PrivateRoute  path="/takeGovernmentIDFront" component={GovtIdWireframe1} />
+                    <PrivateRoute  path="/verifyGovernmentIDFront" component={GovtIdWireframe3} />
+                    <PrivateRoute  path="/takeGovernmentIDBack" component={GovtIdWireframe4} />
+                    <PrivateRoute  path="/verifyGovernmentIDBack" component={GovtIdWireframe6} />
+                    <PrivateRoute  path="/verifyGovernmentIDComplete" component={GovtIdWireframe7} />
                     <PrivateRoute  path="/camera"  component={Camera}/>
                     <PrivateRoute path='/success' component={Success}/>                    
                 </Switch>
