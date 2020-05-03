@@ -52,7 +52,7 @@ class GovtIdWireframe1 extends React.Component{
         <div className="firstBodyExceptSave">
           <VerifyYourIdentity />
           <div className="firstFullIdBody">
-            <p className="firstGovtId">Select a Government ID</p>
+            <p className="firstGovtId" style={{marginTop:"10px",marginLeft:"20px",marginBottom:"10px",paddingTop:"6px"}}>Select a Government ID</p>
             <div className="scrollWrapper">
               <div className="id"><button type="button" className={this.state.aadhaarClass} value="Aadhaar" onClick={() => this.changeId("Aadhaar")}>Aadhaar</button></div>
               <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="PAN" onClick={() => this.changeId("PAN")}>PAN</button></div>
