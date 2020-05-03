@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
-import history from '../history';
 import {Redirect} from 'react-router-dom';
-import './css/clickPhoto.css';
 
 export class ClickPhoto extends React.Component{
 
@@ -26,7 +24,7 @@ export class ClickPhoto extends React.Component{
         }
         else{
             return (
-                <div className="text-center">
+                <div className="text-center" style={{marginTop:"15px",marginBottom:"15px"}}>
                 <Container className="clickPhoto">
                     <Row>
                         <Col><Button color="success" onClick={this.handle}>CLICK PHOTO</Button></Col>
