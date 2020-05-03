@@ -2,10 +2,10 @@ import styled , {css} from 'styled-components';
 export const Div=styled.div`
     position: fixed;
     background:black;
-	top: 50%;
+	top: 54%;
 	left: 50%;
 	min-width: 100%;
-	min-height: 100%;
+	min-height: 95%;
 	width: auto;
 	height: auto;
 	z-index: -100;
@@ -52,13 +52,14 @@ export const Gallery = styled.button`
     bottom:-1.5%;
     left:50%;
     font-size:18px;
+    color:white;
     background:transparent;
     border-color:transparent;  
     transform: translateX(-50%) translateY(-50%);  
 `
 export const Video = styled.video`
     position:fixed;
-    top: 50%;
+    top: 50.5%;
 	left: 50%;
 	min-width: 100%;
 	min-height: 100%;
