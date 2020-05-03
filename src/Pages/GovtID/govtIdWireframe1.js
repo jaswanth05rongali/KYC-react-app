@@ -24,7 +24,7 @@ class GovtIdWireframe1 extends React.Component{
     switch(ID){
       case "PAN": returnPath = './panFront.png';
         break;
-      case "Driving License": returnPath = './driverLicense1.png';
+      case "Driving Licence": returnPath = './driverLicense1.png';
         break;
       case "Passport": returnPath = './passportFront.png';
         break;
@@ -56,7 +56,7 @@ class GovtIdWireframe1 extends React.Component{
             <div className="scrollWrapper">
               <div className="id"><button type="button" className={this.state.aadhaarClass} value="Aadhaar" onClick={() => this.changeId("Aadhaar")}>Aadhaar</button></div>
               <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="PAN" onClick={() => this.changeId("PAN")}>PAN</button></div>
-              <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="Driving License" onClick={() => this.changeId("Driving License")}>Driving License</button></div>
+              <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="Driving Licence" onClick={() => this.changeId("Driving Licence")}>Driving Licence</button></div>
               <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="Passport" onClick={() => this.changeId("Passport")}>Passport</button></div>
               <div className="id"><button type="button" className="idButton btn btn-outline-primary" value="Voter ID" onClick={() => this.changeId("Voter ID")}>Voter ID</button></div>
             </div>

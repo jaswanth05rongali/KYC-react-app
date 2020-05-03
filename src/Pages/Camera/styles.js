@@ -152,7 +152,7 @@ export const OverlayStyles2 = css`
                 return '30%'
             case 'PAN':
                 return '30%' 
-            case 'Driving License':
+            case 'Driving Licence':
                 return '30%'
             case 'Passport':
                 return '30%'   
@@ -166,7 +166,7 @@ export const OverlayStyles2 = css`
                 return '95%'
             case 'PAN':
                 return '95%'
-            case 'Driving License':
+            case 'Driving Licence':
                 return '95%'
             case 'Passport':
                 return '90%'
