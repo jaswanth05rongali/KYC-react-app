@@ -101,7 +101,6 @@ class RegistrationForm extends Component {
           this.setState({formValid: validateForm(this.state.errors)});
           this.setState({errorCount: countErrors(this.state.errors)});
         }
-        sessionStorage.setItem('/customerdetails1',JSON.stringify(true));
       }
   
     componentWillUpdate(nextProps, nextState) {
@@ -141,6 +140,7 @@ class RegistrationForm extends Component {
     
 render(){
     const {errors,formValid,ok,validUser,saveUsers} =this.state;
+    formValid && ok && validUser ? sessionStorage.setItem('/customerdetails1',JSON.stringify(true)): sessionStorage.setItem('/customerdetails1',JSON.stringify(false));
   return(
         <div>
           {/* <label className="switch">
