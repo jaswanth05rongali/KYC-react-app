@@ -67,27 +67,32 @@ export default class Camera extends Component{
             showCamera:true,
             from,
             to,
-            toggle
+            toggle,
+            permissionDenied:false
         }
         sessionStorage.setItem('/'+this.state.to, JSON.stringify(false));
         this.startcamera=this.startcamera.bind(this);
         this.stopcamera=this.stopcamera.bind(this);
         this.takephoto=this.takephoto.bind(this);
         this.handletoggle=this.handletoggle.bind(this);
+        this.handleAssist=this.handleAssist.bind(this);
 
     }
     componentDidMount(){
         this.startcamera();
-        setTimeout(() => {
-            this.photobutton.disabled=false;
-            this.stopbutton.disabled=false;
-            this.tips.disabled=false;
-            this.gallery.disabled=false;
-        }, 1000);
-        this.photobutton.disabled=true;
-        this.stopbutton.disabled=true;
-        this.tips.disabled=true;
-        this.gallery.disabled=true;
+        if(!this.state.showCamera){
+            setTimeout(() => {
+                this.photobutton.disabled=false;
+                this.stopbutton.disabled=false;
+                this.tips.disabled=false;
+                this.gallery.disabled=false;
+            }, 1000);
+            this.photobutton.disabled=true;
+            this.stopbutton.disabled=true;
+            this.tips.disabled=true;
+            this.gallery.disabled=true;
+
+        }
     }
     handletoggle(){
         this.setState({
@@ -105,7 +110,9 @@ export default class Camera extends Component{
         .then((stream)=>{
             this.video.srcObject = stream;
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            this.setState({showCamera:false,permissionDenied:true});
+        })
     }
     stopcamera(){
         sessionStorage.setItem('/'+this.state.from, JSON.stringify(true));
@@ -165,10 +172,37 @@ export default class Camera extends Component{
         sessionStorage.setItem('/camera',JSON.stringify(false));
 
     }
+    handleAssist(){
+        this.setState({permissionDenied:false});
+    }
     
     render(){
         if(this.state.showCamera===false){
-            return <Redirect to={this.state.to}/>
+            if(this.state.permissionDenied===true){
+                return(
+                    <div>
+                        <div>
+                            <h1>OOps !!</h1>
+                            <h4>We need to access the camera to complete your KYC process</h4>
+                            <header>Follow the steps to use camera</header>
+                            <div>
+                                
+                                <ul>
+                                    <li>Go to and click the camera icon on right most part of the url bar</li>
+                                    <li>Select continue allowing http://localhost:3000 to access your camera</li>
+                                    <li>Click on Done button</li>
+                                    <li>Now on the Page click on Go Back to Camera button</li>
+                                    <li>Thank You for your Assistance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button onClick={this.handleAssist}>Go Back to Camera</button>
+                    </div>
+                );  
+            }
+            else {
+                return <Redirect to={this.state.to}/>
+            }
         }
         else{
             return(
