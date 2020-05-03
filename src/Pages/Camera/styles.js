@@ -49,11 +49,12 @@ export const Tips = styled.button`
 export const Gallery = styled.button`
     position:fixed;
     color:white;
-    bottom:1%;
-    left:2%;
+    bottom:-1.5%;
+    left:50%;
     font-size:18px;
     background:transparent;
-    border-color:transparent;    
+    border-color:transparent;  
+    transform: translateX(-50%) translateY(-50%);  
 `
 export const Video = styled.video`
     position:fixed;
@@ -65,13 +66,6 @@ export const Video = styled.video`
 	height: auto;
 	z-index: -100;
 	transform: translateX(-50%) translateY(-50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translateX(-50%) translateY(-50%);
-
 `
 export const Dashboard1 = styled.div`
     position:fixed;
@@ -91,9 +85,10 @@ export const TextStyles1 = css`
     position:fixed;
     text-align:center;
     color:white;
+    opacity:40%;
     font-size:16px;
     left:50%;
-    bottom:20%;
+    bottom:40%;
     transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === false ? 'none':''}};
@@ -105,7 +100,7 @@ export const TextStyles2 = css`
     width:100%;
     font-size:16px;
     left:50%;
-    bottom:40%;
+    bottom:30%;
     transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === true ? 'none':''}};
@@ -117,7 +112,7 @@ export const TextStyles3 = css`
     width:100%;
     font-size:16px;
     left:50%;
-    top:23%;
+    top:33%;
     transform: translate(-50%,-50%);
     z-index:2;
     display:${(props)=>{return props.toggle === true ? 'none':''}};
@@ -144,10 +139,10 @@ export const TextStyles5=css`
 `
 export const OverlayStyles = css`
     position:fixed;
-    height:${(props)=>{return props.toggle === true ? '50%' : '30%'}};
+    height:${(props)=>{return props.toggle === true ? '44%' : '30%'}};
     width:${(props)=>{return props.toggle === true ? '70%' : '90%'}};
     left:50%;
-    top:40%;
+    top:50%;
     border:1px solid white;
     border-radius:${(props)=>{return props.toggle===true ? '80%' : '0%'}};
     transform: translate(-50%,-50%);

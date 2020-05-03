@@ -1,7 +1,7 @@
 import React ,{Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import styled from 'styled-components';
-
+import './dropup.css'
 import {
     Div,
     Dashboard1,
@@ -62,6 +62,7 @@ export default class Camera extends Component{
                 to='';
                 break;
         }
+        
         this.state={
             showCamera:true,
             from,
@@ -194,15 +195,21 @@ export default class Camera extends Component{
                             </T5>
 
                             <Video id="video" autoPlay ref={(ref)=>{this.video=ref}}></Video>
-                            <Cancel  className='btn' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
+                            <Cancel  className='btn btn-danger' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
                             <TakeSelfie  className='btn' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}></TakeSelfie>
                             
-                            <Gallery className='btn' ref={(ref)=>{this.gallery=ref}}>Gallery</Gallery>
-                            <Tips className='btn' ref={(ref)=>{this.tips=ref}}>Tips</Tips> 
+                            <Gallery className='btn btn-secondary' ref={(ref)=>{this.gallery=ref}}>Gallery</Gallery> 
                             <Canvas id="canvas" ref={(ref)=>{this.canvas=ref}}></Canvas>
+                            
+                            <div className="dropup">
+                                <button id="tips"ref={(ref)=>{this.tips=ref}} className="btn btn-secondary">Tips</button>
+                                <div className="dropup-content">
+                                    <a href="#">Hold the Camera Still</a>
+                                    <a href="#">Make Sure there is proper lighting before taking pics</a>
+                                </div>    
+                            </div>
 
-                        </Div>
-                        
+                        </Div> 
                     </div>
             );
         }
