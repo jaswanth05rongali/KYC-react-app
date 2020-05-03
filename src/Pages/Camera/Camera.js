@@ -233,7 +233,6 @@ export default class Camera extends Component{
                             <Cancel  className='btn ' onClick={this.stopcamera} id="stopbutton" ref={(ref)=>{this.stopbutton=ref}}>Close</Cancel>
                             <TakeSelfie  className='btn' onClick={this.takephoto} id="clickbutton" ref={(ref)=>{this.photobutton=ref}}></TakeSelfie>
                             
-                            <Gallery id="gallery"className='btn' ref={(ref)=>{this.gallery=ref}}>Gallery</Gallery> 
                             <Canvas id="canvas" ref={(ref)=>{this.canvas=ref}}></Canvas>
                             
                             <div className="dropup">
