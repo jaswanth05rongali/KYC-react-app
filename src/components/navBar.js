@@ -30,13 +30,21 @@ export default class KYCNavBar extends React.Component {
         this.toggleThemeChange=this.toggleThemeChange.bind(this);
         this.toggleNavbar=this.toggleNavbar.bind(this);
         this.handleClick=this.handleClick.bind(this);
+        this.handleClickOutside=this.handleClickOutside.bind(this);
     }
 
   toggleNavbar(){
-      let collapsedState=this.state.collapsed;
-      this.setState({
-          collapsed: !(collapsedState),
-      })
+
+    if (this.state.collapsed) {
+      document.addEventListener('click', this.handleClickOutside, false);
+    }
+    else {
+      document.removeEventListener('click', this.handleClickOutside, false);
+    }
+    let collapsedState=this.state.collapsed;
+    this.setState({
+        collapsed: !(collapsedState),
+    })
   }
 
   toggleThemeChange = (themeState) => {
@@ -59,18 +67,20 @@ export default class KYCNavBar extends React.Component {
             darkButton: "idButton btn btn-outline-primary",
         });
     }
-    let collapsedState=this.state.collapsed;
-      this.setState({
-          collapsed: !(collapsedState),
-      })
+    this.toggleNavbar();
   }
 
   handleClick(){
-    let collapsedState=this.state.collapsed;
-      this.setState({
-          collapsed: !(collapsedState),
-      })
+    this.toggleNavbar();
     return history.push('/');
+  }
+
+  handleClickOutside(e){
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.toggleNavbar();
   }
 
   componentDidMount() {
@@ -88,7 +98,7 @@ export default class KYCNavBar extends React.Component {
       CP = <NavItem><div className="id"><button type="button" className="idButton btn btn-outline-primary" onClick={this.handleClick}>Logout</button></div></NavItem>
     }
     return (
-        <div>
+        <div ref={node => { this.node = node; }}>
           <Navbar style={{backgroundColor: '#28a745'}} color="" light>
             <NavbarBrand style={{color: '#fff'}} className="mr-auto">Know Your Customer</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
