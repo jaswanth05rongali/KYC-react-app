@@ -12,18 +12,21 @@ class DetailPage extends Component {
             validuser:false,
             username:'',
             dateofbirth:'',
-            gender:''
+            gender:'',
+            validgender: false
         };
           this.handleChange = this.handleChange.bind(this);
+        sessionStorage.setItem('validGender',JSON.stringify(false));
         sessionStorage.setItem('currentPage','/customerdetails');
         sessionStorage.setItem('/takeselfie',JSON.stringify(false));              
 }
         
 changegender = (gndr) =>{
+    sessionStorage.setItem('validGender',JSON.stringify(true));
     this.setState({
-        gender:gndr
+        gender:gndr,
+        validgender:true
     })
-    this.setState({validgender:true});
 }
          
         handleChange(event){
@@ -37,8 +40,7 @@ changegender = (gndr) =>{
 
         handleSubmit = (event) => {
             event.preventDefault();
-            sessionStorage.setItem('/takeselfie',JSON.stringify(true));
-            sessionStorage.setItem('/customerdetails',JSON.stringify(false));
+            let validgender = JSON.parse(sessionStorage.getItem('validGender'));
             let username=this.state.username;
             let dateofbirth=this.state.dateofbirth;
             let i;
@@ -60,9 +62,12 @@ changegender = (gndr) =>{
             }
             if(!ok) alert('Name cannot contain numbers or special characters !');
             else if(dateofbirth>=today) alert('invalid date of birth !');
-            else history.push('/takeselfie');
-            
-
+            else if(validgender === false) alert('Please select gender!');
+            else{ 
+                sessionStorage.setItem('/takeselfie',JSON.stringify(true));
+                sessionStorage.setItem('/customerdetails',JSON.stringify(false));
+                history.push('/takeselfie');
+            }
         }
         
         handleClick(){
