@@ -30,8 +30,8 @@ class GovtIdWireframe7 extends React.Component{
               <div className="finalFullIdBody">
                   <YourGovtId current="/verifyGovernmentIDComplete"/>
                   <div className="finalImages">
-                      <img className="finalFrontIdImage" src={this.state.idfront} height="70" width="110" alt="ID Front" />
-                      <img className="finalBackIdImage" src={this.state.idback} height="70" width="110" alt="ID Back" /> 
+                      <img className="finalFrontIdImage" src={this.state.idfront} height="auto" width="100" alt="ID Front" />
+                      <img className="finalBackIdImage" src={this.state.idback} height="auto" width="100" alt="ID Back" /> 
                   </div>
               </div>
               <div className="finalEmpty">
