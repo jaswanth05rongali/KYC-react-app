@@ -107,7 +107,9 @@ export default class Camera extends Component{
 
         const CAPTURE_OPTIONS = {
             audio: false,
-            video: {facingMode: `${this.state.toggle===true?'user':'environment'}`
+            video: {facingMode: `${this.state.toggle===true?'user':'environment'}`,
+            width:1280,
+            height:720
             },
         };
 
