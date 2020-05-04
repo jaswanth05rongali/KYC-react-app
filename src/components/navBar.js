@@ -81,11 +81,11 @@ export default class KYCNavBar extends React.Component {
 
   render(){
     let CP;
-    if(sessionStorage.getItem('currentPage')!='/'){
-        CP = <NavItem><div className="id"><button type="button" className="idButton btn btn-outline-primary" onClick={this.handleClick}>Logout</button></div></NavItem>
+    if(sessionStorage.getItem('currentPage')==='/' || sessionStorage.getItem('currentPage')==='/success'){
+      CP=<></>
     }
     else{
-      CP=<></>
+      CP = <NavItem><div className="id"><button type="button" className="idButton btn btn-outline-primary" onClick={this.handleClick}>Logout</button></div></NavItem>
     }
     return (
         <div>
